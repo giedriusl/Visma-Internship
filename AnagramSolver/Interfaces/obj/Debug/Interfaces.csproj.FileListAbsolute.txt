@@ -1,0 +1,6 @@
+C:\Users\giedr\Source\Repos\AnagramSolver\Interfaces\bin\Debug\Interfaces.dll
+C:\Users\giedr\Source\Repos\AnagramSolver\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\giedr\Source\Repos\AnagramSolver\Interfaces\obj\Debug\Interfaces.csprojResolveAssemblyReference.cache
+C:\Users\giedr\Source\Repos\AnagramSolver\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\giedr\Source\Repos\AnagramSolver\Interfaces\obj\Debug\Interfaces.dll
+C:\Users\giedr\Source\Repos\AnagramSolver\Interfaces\obj\Debug\Interfaces.pdb
