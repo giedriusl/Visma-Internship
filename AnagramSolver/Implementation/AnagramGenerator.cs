@@ -13,25 +13,31 @@ namespace Implementation
         private Dictionary<string, HashSet<string>> _anagramSet = new Dictionary<string, HashSet<string>>();
         private HashSet<string> _allWords = new HashSet<string>();
         private int _minCount;
-        private int _maxResults;
 
-        public AnagramGenerator(IWordRepository iWordRepository, int max)
+        public AnagramGenerator(IWordRepository iWordRepository, int min)
         {
             _iWordsRepository = iWordRepository;
-            _maxResults = max;
+            _minCount = min;
         }
         public List<string> GetAnagrams(string myWords)
         {
-            myWords = Regex.Replace(myWords, @"\s+", "");
-            ReadWordsFromDictionary();
-            SortAnagrams();
-            var anagrams = FindAnagram(myWords);
-            return anagrams;
+            if (!String.IsNullOrEmpty(myWords))
+            {
+                myWords = Regex.Replace(myWords, @"\s+", "");
+                ReadWordsFromDictionary();
+                SortAnagrams();
+                var anagrams = FindAnagram(myWords);
+                return anagrams;
+            } else
+            {
+                return null;
+            }
+
         }
 
         public List<string> FindAnagram(string myWords)
         {
-            myWords = Alphabetize(myWords);
+            myWords = Alphabetize(myWords).ToLower();
             if (_anagramSet.ContainsKey(myWords))
             {
                 var results = _anagramSet[myWords].ToList();
@@ -42,7 +48,7 @@ namespace Implementation
             }
         }
 
-        public void ReadWordsFromDictionary()
+        private void ReadWordsFromDictionary()
         {
             var parsedText = _iWordsRepository.ParseText();
             if (parsedText != null)
@@ -51,7 +57,7 @@ namespace Implementation
             }
         }
 
-        public void SortAnagrams()
+        private void SortAnagrams()
         {
             foreach(var word in _allWords)
             {

@@ -20,6 +20,7 @@ namespace Tests
             words = fileReader.ParseText();
             //Assert
             Assert.IsNotNull(words);
+            //Assert.IsTrue(true);
         }
     }
 }

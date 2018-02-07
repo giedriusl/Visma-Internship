@@ -1,0 +1,61 @@
+﻿@model Web.Models.Anagram
+
+
+<div class="row">
+    <h1>Welcome to Anagram Generator</h1>
+    @*@using (Html.BeginForm("GetAnagrams", "Home", FormMethod.Post))
+    {
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        <input type="submit" value="Search">
+    }*@
+
+    @*@if (ViewBag.Model != null)
+    {
+        <ul>
+            @foreach (var anagram in ViewBag.Model)
+            {
+                <li>@anagram.Name </li>
+            }
+        </ul>
+    }*@
+
+
+    @*<div id="wordinput">
+            <form>
+                <p> Enter word to find anagram</p>
+                <input type="text" id="word">
+                <input type="button" value="Search">
+            </form>
+        </div>
+        <ul id="myList"></ul>*@
+</div>
+
+
+
+
+@*@section scripts {
+        <script src="jquery-3.3.1.min.js"></script>
+        <script>
+            $(function () {
+
+                var word;
+
+                $("button").click(function () {
+                    word = $("word").val();
+                    GetAnagrams(word);
+                    $("wordinput").hide();
+                });
+
+            });
+
+            function GetAnagrams(word) {
+                console.log(word);
+                $.getJSON('@Html.ActionLink("Home", "GetAnagrams")', word, function (list) {
+                    $.each(list, function (val) {
+                        $("myList").append("<li>" + val + "<li>");
+                    });
+
+                });
+            }
+        </script>
+    }*@

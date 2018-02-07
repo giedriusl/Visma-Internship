@@ -8,16 +8,18 @@ namespace DBReader
 {
     public class FileReader : IWordRepository
     {
-        private HashSet<string> setOfWords = new HashSet<string>();
+        private readonly IDisplay _display;
         private string _filePath;
-        public FileReader(string path)
+        public FileReader(IDisplay display, string path)
         {
+            _display = display;
             _filePath = path;
         }
         public HashSet<string> ParseText()
         {
-            try { 
-                using(StreamReader streamReader = new StreamReader(_filePath))
+            try {
+                HashSet<string> setOfWords = new HashSet<string>();
+                using (StreamReader streamReader = new StreamReader(_filePath))
                 {
                     while(!streamReader.EndOfStream)
                     {
@@ -29,16 +31,14 @@ namespace DBReader
                     }
                 }
                 return setOfWords;
-            } catch (DirectoryNotFoundException ex)
+            } catch (DirectoryNotFoundException)
             {
-                Console.WriteLine("File couldn't be found");
-                Console.ReadLine();
+                _display.Print("File couldn't be found");
                 return null;
             }
             catch (Exception e)
             {
-                Console.WriteLine("Something happened while reading dictionary!");
-                Console.ReadLine();
+                _display.Print($"Something happened while reading dictionary: {e.Message}");
                 return null;
             }
         }
