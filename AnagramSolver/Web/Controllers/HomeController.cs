@@ -33,6 +33,7 @@ namespace Web.Controllers
         {
             int pageSize = 100;
             int pageNumber = (page ?? 1);
+            pageNumber = pageNumber > 0 ? pageNumber : 1;
             return View(MvcApplication.anagramGenerator.AllWords.ToPagedList(pageNumber, pageSize));
         }
     }

@@ -1,9 +1,7 @@
-﻿using DBReader;
-using Implementation;
+﻿using Implementation;
 using Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Tests
 {
@@ -14,9 +12,7 @@ namespace Tests
         public void Should_ReturnTrue_When_WordIsAlphabetized()
         {
             //Arrange
-            IDisplay dt = new DisplayTest();
-            var path = @"C:\Users\giedrius.lukocius\Desktop\AnagramSolver\MainApp\bin\Debug\zodynas.txt";
-            AnagramGenerator anagramGenerator = new AnagramGenerator(new FileReader(dt, path), 2);
+            var anagramGenerator = DefaultInit();
             var word = "alus";
             var alphabetized = "alsu";
             
@@ -33,50 +29,58 @@ namespace Tests
         public void Should_ReturnTrue_When_WordHasRightAnagrams()
         {
             //Arrange
-            IDisplay dt = new DisplayTest();
-            var path = @"C:\Users\giedrius.lukocius\Desktop\AnagramSolver\MainApp\bin\Debug\zodynas.txt";
-            AnagramGenerator anagramGenerator = new AnagramGenerator(new FileReader(dt, path), 2);
+            var anagramGenerator = DefaultInit();
             var word = "alus";
             var anagrams = new List<string> { "alus", "sula" };
 
+
             //Act
             var result = anagramGenerator.GetAnagrams(word);
-            var biggerCount = result.Count <= anagrams.Count ? result.Count : anagrams.Count;
-            bool equal = false;
-            for (int i = 0; i < biggerCount; i++)
-            {
-                if (result[i] != anagrams[i])
-                {
-                    equal = false;
-                    break;
-                }
-                equal = true;
-            }
-            if (equal)
-                anagrams = result;
-            //Assert
 
-            Assert.AreEqual(anagrams,result);
+            //Assert
+            Assert.AreEqual(anagrams.Count, result.Count);
+            for (int i = 0; i < anagrams.Count; i++)
+            {
+                Assert.AreEqual(anagrams[i], result[i]);
+            }
         }
 
         [TestMethod]
         public void Should_ReturnFalse_When_WordHasWrongAnagrams()
         {
-            IDisplay dt = new DisplayTest();
-            var path = @"C:\Users\giedrius.lukocius\Desktop\AnagramSolver\MainApp\bin\Debug\zodynas.txt";
-            AnagramGenerator anagramGenerator = new AnagramGenerator(new FileReader(dt, path), 2);
+            var anagramGenerator = DefaultInit();
             var word = "alus";
             var anagrams = new List<string> { "alusa", "sula" };
             var result = anagramGenerator.GetAnagrams(word);
-            Assert.AreNotEqual(anagrams, result);
+            Assert.AreEqual(anagrams.Count, result.Count);
+            for (int i = 0; i < anagrams.Count; i++)
+            {
+                Assert.AreEqual(anagrams[i], result[i]);
+            }
         }
 
-        public class DisplayTest : IDisplay
+
+        public AnagramGenerator DefaultInit()
         {
-            public void Print(string str)
-            {
-                Debug.WriteLine(str);
-            }
+            List<string> list = new List<string> { "alus", "sula", "medis", "namas", "obuolys" };
+            AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list), 2);
+            return anagramGenerator;
+        }
+        
+    }
+
+    public class FakeReader : IWordRepository
+    {
+        HashSet<string> set;
+
+        public FakeReader(List<string> parameters)
+        {
+            set = new HashSet<string>(parameters);
+        }
+
+        public HashSet<string> ParseText()
+        {
+            return set;
         }
     }
 }

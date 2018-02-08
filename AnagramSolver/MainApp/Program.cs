@@ -2,34 +2,23 @@
 using Implementation;
 using System;
 using System.Configuration;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MainApp
 {
     public class Program
     {
+        static HttpClient client = new HttpClient();
+
         static void Main(string[] args)
         {
-            
-            Console.WriteLine("Enter words: ");
-            var myWords = Console.ReadLine();
-            Start(myWords);
-            Console.ReadLine();
+            RunAsync().GetAwaiter().GetResult();
         }
 
-        public static void Start(string myWords)
+        static async Task RunAsync()
         {
-            var minCount = Constants.ParseIntegerParameter(Constants.MinCount);
-            var maxResult = Constants.ParseIntegerParameter(Constants.MaxResult);
-            var path = Constants.Path;
-            DisplayConsole dc = new DisplayConsole();
-            AnagramGenerator anagramGenerator = new AnagramGenerator(new FileReader(dc,path), minCount);
-            var anagrams = anagramGenerator.GetAnagrams(myWords);
-            string anagramsToPrint = "";
-            anagramsToPrint = String.Join(", ", anagrams);
-            if (String.IsNullOrEmpty(anagramsToPrint))
-                Console.WriteLine("No anagrams found!");
-            else
-                Console.WriteLine("Anagrams found: " + anagramsToPrint);
+            client.BaseAddress = new Uri("http://localhost:54566/");
         }
     }
 }

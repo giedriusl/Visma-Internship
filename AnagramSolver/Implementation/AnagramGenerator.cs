@@ -42,7 +42,8 @@ namespace Implementation
 
         public List<string> FindAnagram(string myWords)
         {
-            myWords = Alphabetize(myWords).ToLower();
+            myWords = myWords.ToLower();
+            myWords = Alphabetize(myWords);
             if (_anagramSet.ContainsKey(myWords))
             {
                 var results = _anagramSet[myWords].ToList();

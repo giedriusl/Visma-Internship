@@ -18,8 +18,13 @@ namespace Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            CustomInit();
+        }
+
+        private void CustomInit()
+        {
             var path = Constants.Path;
-            var minCount = Constants.ParseIntegerParameter(Constants.MinCount);
+            var minCount = ConstantsHelper.ParseIntegerParameter(Constants.MinCount);
             display = new DisplayWeb();
             var fileReader = new FileReader(display, path);
             anagramGenerator = new AnagramGenerator(fileReader, minCount);

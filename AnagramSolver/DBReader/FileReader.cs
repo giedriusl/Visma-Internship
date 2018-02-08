@@ -17,7 +17,8 @@ namespace DBReader
         }
         public HashSet<string> ParseText()
         {
-            try {
+            try
+            {
                 HashSet<string> setOfWords = new HashSet<string>();
                 using (StreamReader streamReader = new StreamReader(_filePath))
                 {
@@ -31,7 +32,8 @@ namespace DBReader
                     }
                 }
                 return setOfWords;
-            } catch (DirectoryNotFoundException)
+            }
+            catch (DirectoryNotFoundException)
             {
                 _display.Print("File couldn't be found");
                 return null;

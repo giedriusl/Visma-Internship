@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using DBReader;
 using Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -22,6 +23,14 @@ namespace Tests
             words = fileReader.ParseText();
             //Assert
             Assert.IsNotNull(words);
+        }
+    }
+
+    public class DisplayTest : IDisplay
+    {
+        public void Print(string str)
+        {
+            Debug.WriteLine(str);
         }
     }
 }
