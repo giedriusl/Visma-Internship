@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "GetAnagramsFromDictionary";
+}
+
+@if (ViewBag.Model != null)
+{
+    <ul>
+        @foreach (var anagram in ViewBag.Model)
+        {
+            <li>@anagram</li>
+        }
+    </ul>
+}

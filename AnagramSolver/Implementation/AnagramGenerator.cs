@@ -11,21 +11,27 @@ namespace Implementation
     {
         private readonly IWordRepository _iWordsRepository;
         private Dictionary<string, HashSet<string>> _anagramSet = new Dictionary<string, HashSet<string>>();
-        private HashSet<string> _allWords = new HashSet<string>();
+        public HashSet<string> AllWords = new HashSet<string>();
         private int _minCount;
 
         public AnagramGenerator(IWordRepository iWordRepository, int min)
         {
             _iWordsRepository = iWordRepository;
             _minCount = min;
+            Init();
         }
+
+        private void Init()
+        {
+            ReadWordsFromDictionary();
+            SortAnagrams();
+        }
+
         public List<string> GetAnagrams(string myWords)
         {
             if (!String.IsNullOrEmpty(myWords))
             {
                 myWords = Regex.Replace(myWords, @"\s+", "");
-                ReadWordsFromDictionary();
-                SortAnagrams();
                 var anagrams = FindAnagram(myWords);
                 return anagrams;
             } else
@@ -53,13 +59,13 @@ namespace Implementation
             var parsedText = _iWordsRepository.ParseText();
             if (parsedText != null)
             {
-                _allWords = parsedText;
+                AllWords = parsedText;
             }
         }
 
         private void SortAnagrams()
         {
-            foreach(var word in _allWords)
+            foreach(var word in AllWords)
             {
                 var sortedWord = Alphabetize(word);
                 if (!Contains(sortedWord))

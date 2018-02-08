@@ -1,5 +1,8 @@
 ﻿using DBReader;
 using Implementation;
+using PagedList;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Web.Mvc;
 using Web.Models;
 
@@ -20,11 +23,21 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult GetAnagrams(Anagram anagram)
         {
-            var minCount = 2;
-            var path = @"C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\MainApp\bin\Debug\zodynas.txt";
-            AnagramGenerator anagramGenerator = new AnagramGenerator(new FileReader(path), minCount);
-            ViewBag.Model = anagramGenerator.GetAnagrams(anagram.Name);
+            ViewBag.Model = MvcApplication.anagramGenerator.GetAnagrams(anagram.Name);
             return View();
+        }
+
+        public ActionResult GetAnagramsFromDictionary(string input)
+        {
+            ViewBag.Model = MvcApplication.anagramGenerator.GetAnagrams(input);
+            return View();
+        }
+
+        public ActionResult ShowDictionary(int? pagePos, string currentFilter)
+        {
+            int pageSize = 100;
+            int pageNumber = (pagePos ?? 1);
+            return View(MvcApplication.anagramGenerator.AllWords.ToPagedList(pageNumber, pageSize));
         }
     }
 }
