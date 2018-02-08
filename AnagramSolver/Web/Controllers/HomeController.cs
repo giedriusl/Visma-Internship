@@ -1,8 +1,4 @@
-﻿using DBReader;
-using Implementation;
-using PagedList;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using PagedList;
 using System.Web.Mvc;
 using Web.Models;
 
@@ -33,10 +29,10 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult ShowDictionary(int? pagePos, string currentFilter)
+        public ActionResult ShowDictionary(int? page, string currentFilter)
         {
             int pageSize = 100;
-            int pageNumber = (pagePos ?? 1);
+            int pageNumber = (page ?? 1);
             return View(MvcApplication.anagramGenerator.AllWords.ToPagedList(pageNumber, pageSize));
         }
     }
