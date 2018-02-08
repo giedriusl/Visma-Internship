@@ -38,7 +38,6 @@ namespace Implementation
             {
                 return null;
             }
-
         }
 
         public List<string> FindAnagram(string myWords)

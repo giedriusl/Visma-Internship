@@ -11,7 +11,7 @@ namespace Tests
     {
 
         [TestMethod]
-        public void Check_If_Text_File_Is_Not_Null ()
+        public void Should_ReturnTrue_When_FileIsNotNull ()
         {
             //Arrange
             IDisplay dt = new DisplayTest();
@@ -22,7 +22,6 @@ namespace Tests
             words = fileReader.ParseText();
             //Assert
             Assert.IsNotNull(words);
-            //Assert.IsTrue(true);
         }
     }
 }

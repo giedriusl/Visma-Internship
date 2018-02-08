@@ -11,7 +11,7 @@ namespace Tests
     public class AnagramGeneratorTests
     {
         [TestMethod]
-        public void Should_Check_If_Alphabetize_Method_Sorts_The_Word()
+        public void Should_ReturnTrue_When_WordIsAlphabetized()
         {
             //Arrange
             IDisplay dt = new DisplayTest();
@@ -28,7 +28,21 @@ namespace Tests
 
             Assert.AreEqual(alphabetized, result);
         }
+        
+        [TestMethod]
+        public void Should_ReturnTrue_When_WordHasRightAnagrams()
+        {
+            //Arrange
+            IDisplay dt = new DisplayTest();
+            var path = @"C:\Users\giedrius.lukocius\Desktop\AnagramSolver\MainApp\bin\Debug\zodynas.txt";
+            AnagramGenerator anagramGenerator = new AnagramGenerator(new FileReader(dt, path), 2);
+            var word = "alus";
+            var alphabetized = new List<string> { "alus", "sula" };
 
+            //Act
+            var result = anagramGenerator.GetAnagrams(word);
+
+        }
         public class DisplayTest : IDisplay
         {
             public void Print(string str)
