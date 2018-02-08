@@ -41,7 +41,7 @@ namespace MainApp
         static async Task<string> GetAsync(string path)
         {
             string product = null;
-            HttpResponseMessage response = await client.GetAsync(path);
+            string response = await client.GetAsync(path);
             if (response.IsSuccessStatusCode)
             {
                 product = await response.Content.ReadAsStringAsync();
