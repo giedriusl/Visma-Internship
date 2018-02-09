@@ -207,6 +207,7 @@
     <Content Include="Views\Home\GetAnagrams.cshtml" />
     <Content Include="Views\Home\ShowDictionary.cshtml" />
     <Content Include="Views\Home\GetAnagramsFromDictionary.cshtml" />
+    <Content Include="Views\Home\Downloads.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

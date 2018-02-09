@@ -12,10 +12,10 @@ namespace MainApp
         {
             _display.Print("Press enter to continue..");
             string inputWord = Console.ReadLine();
-            RunAsync(inputWord).GetAwaiter().GetResult();
+            GetAnagrams(inputWord).GetAwaiter().GetResult();
         }
 
-        static async Task RunAsync(string inputWord)
+        static async Task GetAnagrams(string inputWord)
         {
             try
             {

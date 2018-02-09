@@ -1,6 +1,9 @@
 ﻿using PagedList;
 using System;
-using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -10,8 +13,6 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        //private static List<string> _lastSearches = new List<string>();
-
         public ActionResult Index()
         {
             return View();
@@ -59,6 +60,18 @@ namespace Web.Controllers
         {
             var result = MvcApplication.anagramGenerator.GetAnagrams(word);
             return Json(new {result = result}, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Downloads()
+        {
+            return View();
+        }
+
+        public FileResult DownloadDictionary()
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(Constants.Path);
+            string fileName = "dictionary.txt";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
     }
 }
