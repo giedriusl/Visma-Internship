@@ -52,10 +52,10 @@ namespace Tests
             var word = "alus";
             var anagrams = new List<string> { "alusa", "sula" };
             var result = anagramGenerator.GetAnagrams(word);
-            Assert.AreEqual(anagrams.Count, result.Count);
+            Assert.AreNotEqual(anagrams.Count, result.Count);
             for (int i = 0; i < anagrams.Count; i++)
             {
-                Assert.AreEqual(anagrams[i], result[i]);
+                Assert.AreNotEqual(anagrams[i], result[i]);
             }
         }
 

@@ -84,3 +84,9 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\System.Web.Optimization.xml
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\PagedList.xml
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\System.Web.Http.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\System.Web.Http.xml
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\Newtonsoft.Json.xml

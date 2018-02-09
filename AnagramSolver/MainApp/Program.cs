@@ -1,10 +1,5 @@
-﻿using DBReader;
-using Implementation;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace MainApp
@@ -12,43 +7,39 @@ namespace MainApp
     public class Program
     {
         static HttpClient client = new HttpClient();
-        private DisplayConsole _display = new DisplayConsole();
+        private static DisplayConsole _display = new DisplayConsole();
         static void Main(string[] args)
         {
-            RunAsync().GetAwaiter().GetResult();
+            _display.Print("Press enter to continue..");
+            string inputWord = Console.ReadLine();
+            RunAsync(inputWord).GetAwaiter().GetResult();
         }
 
-        static async Task RunAsync()
+        static async Task RunAsync(string inputWord)
         {
-            DisplayConsole _display = new DisplayConsole();
-            //client.BaseAddress = new Uri("http://localhost:54566/");
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(
-            //    new MediaTypeWithQualityHeaderValue("application/json"));
             try
             {
-                var input = "alus";
-                var anagrams = await GetAsync($"http://localhost:54566/Home/GetAnagramsFromDictionary?input={input}");
-                Console.WriteLine(anagrams);
+                string resultanagrams = client.GetStringAsync($"http://localhost:54566/Home/GetApiAnagrams/?word={inputWord}").Result;
+                _display.Print(resultanagrams);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                _display.Print(e.Message);
             }
             Console.ReadLine();
         }
 
-        static async Task<string> GetAsync(string path)
-        {
-            string product = null;
-            string response = await client.GetAsync(path);
-            if (response.IsSuccessStatusCode)
-            {
-                product = await response.Content.ReadAsStringAsync();
+        //static async Task<string> GetAsync(string path)
+        //{
+        //    string product = null;
+        //    HttpResponseMessage response = await client.GetAsync(path);
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        product = await response.Content.ReadAsStringAsync();
 
-            }
-            return product;
-        }
+        //    }
+        //    return product;
+        //}
 
         
     }
