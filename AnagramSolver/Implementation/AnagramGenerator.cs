@@ -89,5 +89,10 @@ namespace Implementation
             Array.Sort(characters);
             return new string(characters);
         }
+
+        public void FindTwoAnagrams()
+        {
+
+        }
     }
 }

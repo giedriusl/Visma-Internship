@@ -10,10 +10,12 @@ namespace DBReader
     {
         private readonly IDisplay _display;
         private string _filePath;
-        public FileReader(IDisplay display, string path)
+        private int _minCount;
+        public FileReader(IDisplay display, string path, int minCount)
         {
             _display = display;
             _filePath = path;
+            _minCount = minCount;
         }
         public HashSet<string> ParseText()
         {
@@ -27,8 +29,15 @@ namespace DBReader
                         var line = streamReader.ReadLine();
                         line = Regex.Replace(line, @"\s+", " ").ToLower();
                         var words = line.Split(' ');
-                        setOfWords.Add(words[0]);
-                        setOfWords.Add(words[2]);
+                        if(words[0].Length >= _minCount)
+                        {
+                            setOfWords.Add(words[0]);
+
+                        }
+                        if (words[2].Length >= _minCount)
+                        {
+                            setOfWords.Add(words[2]);
+                        }
                     }
                 }
                 return setOfWords;

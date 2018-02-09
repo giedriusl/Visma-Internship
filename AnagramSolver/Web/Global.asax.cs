@@ -26,7 +26,7 @@ namespace Web
             var path = Constants.Path;
             var minCount = ConstantsHelper.ParseIntegerParameter(Constants.MinCount);
             display = new DisplayWeb();
-            var fileReader = new FileReader(display, path);
+            var fileReader = new FileReader(display, path, minCount);
             anagramGenerator = new AnagramGenerator(fileReader, minCount);
         }
     }
