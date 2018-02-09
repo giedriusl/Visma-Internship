@@ -28,19 +28,5 @@ namespace MainApp
             }
             Console.ReadLine();
         }
-
-        //static async Task<string> GetAsync(string path)
-        //{
-        //    string product = null;
-        //    HttpResponseMessage response = await client.GetAsync(path);
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        product = await response.Content.ReadAsStringAsync();
-
-        //    }
-        //    return product;
-        //}
-
-        
     }
 }

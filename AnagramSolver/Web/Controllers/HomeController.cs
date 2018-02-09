@@ -10,6 +10,8 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        //private static List<string> _lastSearches = new List<string>();
+
         public ActionResult Index()
         {
             return View();

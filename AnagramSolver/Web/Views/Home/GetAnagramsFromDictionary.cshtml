@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "GetAnagramsFromDictionary";
 }
-
+<h3>Last search: @Response.Cookies["LastSearch"].Value</h3>
 @if (ViewBag.Model != null)
 {
     <ul>

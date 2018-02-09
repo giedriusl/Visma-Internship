@@ -7,7 +7,7 @@
     <h1>Welcome to Anagram Generator</h1>
     @using (Html.BeginForm("GetAnagrams", "Home", FormMethod.Post))
     {
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
         <input type="submit" value="Search">
     }
 
