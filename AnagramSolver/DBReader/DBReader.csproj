@@ -44,6 +44,7 @@
     <Compile Include="DBConstants.cs" />
     <Compile Include="DatabaseReader.cs" />
     <Compile Include="DatabaseWriter.cs" />
+    <Compile Include="DBUploader.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,11 +53,6 @@
       <Project>{932f0800-779f-4d68-ad5e-71a8fca96b7a}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
