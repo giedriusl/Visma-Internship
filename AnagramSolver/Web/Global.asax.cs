@@ -10,6 +10,7 @@ namespace Web
     public class MvcApplication : HttpApplication
     {
         public static AnagramGenerator anagramGenerator;
+        public static DatabaseReader dbReader;
         public static DisplayWeb display;
 
         protected void Application_Start()
@@ -26,8 +27,9 @@ namespace Web
             var path = Constants.Path;
             var minCount = ConstantsHelper.ParseIntegerParameter(Constants.MinCount);
             display = new DisplayWeb();
-            var fileReader = new FileReader(display, path, minCount);
-            anagramGenerator = new AnagramGenerator(fileReader, minCount);
+            //var connectionString = DBReader.Constants.ConnectionString;
+            dbReader = new DatabaseReader("Data Source=LT-LIT-SC-0015;Initial Catalog=AnagramsDB;Integrated Security=True");
+            anagramGenerator = new AnagramGenerator(dbReader, minCount);
         }
     }
 }

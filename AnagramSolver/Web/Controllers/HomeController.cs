@@ -48,12 +48,21 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult ShowDictionary(int? page, string currentFilter)
+        public ActionResult ShowDictionary(int? page, string currentFilter, string filter)
         {
             int pageSize = 100;
             int pageNumber = (page ?? 1);
             pageNumber = pageNumber > 0 ? pageNumber : 1;
-            return View(MvcApplication.anagramGenerator.AllWords.ToPagedList(pageNumber, pageSize));
+            IPagedList<string> result;
+            if(filter != null)
+            {
+                 result = MvcApplication.dbReader.FilterByWord(filter).ToPagedList(pageNumber, pageSize);
+            }
+            else
+            {
+                 result = MvcApplication.anagramGenerator.AllWords.ToPagedList(pageNumber, pageSize);
+            }
+            return View(result);
         }
 
         public JsonResult GetApiAnagrams(string word)
