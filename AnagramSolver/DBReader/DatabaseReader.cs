@@ -16,7 +16,6 @@ namespace DBReader
         public HashSet<string> ReadWords(string query)
         {
             HashSet<string> words = new HashSet<string>();
-            //var connectionString = Constants.ConnectionString;
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -36,7 +35,6 @@ namespace DBReader
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand command = new SqlCommand("SELECT word FROM Words WHERE word LIKE '%'+@Filter+'%'", connection);
-                //command.Parameters.AddWithValue("@Filter", filter);
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@Filter";
                 parameter.Value = filter;

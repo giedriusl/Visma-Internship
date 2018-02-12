@@ -8,10 +8,30 @@ namespace DBReader
 {
     public class DatabaseWriter : IDatabaseWriter
     {
+        private static string _connectionString;
+
+        public DatabaseWriter(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
+        public void DeleteTableData(string tableName)
+        {
+            using (var sqlConnection = new SqlConnection(_connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlConnection;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "dbo.DeleteTableByName";
+                command.Parameters.Add(new SqlParameter("@TableName",tableName));
+                command.ExecuteNonQuery();
+            }
+        }
+
         public void DatabaseInit(HashSet<string> words)
         {
-            var connectionString = "Data Source=LT-LIT-SC-0015;Initial Catalog=AnagramsDB;Integrated Security=True";//Constants.ConnectionString;
-            var sqlConnection = new SqlConnection(connectionString);
+            var sqlConnection = new SqlConnection(_connectionString);
             var sqlBulkCopy = new SqlBulkCopy(sqlConnection)
             {
                 DestinationTableName = "Words",

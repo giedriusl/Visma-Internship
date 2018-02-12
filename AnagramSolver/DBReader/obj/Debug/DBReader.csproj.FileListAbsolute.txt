@@ -14,6 +14,7 @@ C:\Users\giedrius.lukocius\Desktop\AnagramSolver\DBReader\obj\Debug\DBReader.csp
 C:\Users\giedrius.lukocius\Desktop\AnagramSolver\DBReader\obj\Debug\DBReader.csproj.CoreCompileInputs.cache
 C:\Users\giedrius.lukocius\Desktop\AnagramSolver\DBReader\obj\Debug\DBReader.dll
 C:\Users\giedrius.lukocius\Desktop\AnagramSolver\DBReader\obj\Debug\DBReader.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\DBReader.dll.config
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\DBReader.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\DBReader.pdb
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\Interfaces.dll
@@ -22,4 +23,3 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\obj\Debug\DBReader.csproj.CoreCompileInputs.cache
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\obj\Debug\DBReader.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\obj\Debug\DBReader.pdb
-C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\DBReader.dll.config

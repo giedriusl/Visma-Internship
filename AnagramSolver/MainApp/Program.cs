@@ -9,10 +9,17 @@ namespace MainApp
     {
         static HttpClient client = new HttpClient();
         private static DisplayConsole _display = new DisplayConsole();
+        private static int _minCount;
+        private static int _maxResult;
+        private static string _path;
+        private static string _connectionId;
+
         static void Main(string[] args)
         {
+
             Menu();
         }
+
 
         private static void GetApi()
         {
@@ -22,21 +29,26 @@ namespace MainApp
             Console.ReadLine();
         }
 
-        private static void DbInit()
+        public void SettingsConfig()
         {
-            var min = Implementation.ConstantsHelper.ParseIntegerParameter(Implementation.Constants.MinCount);
-            var path = Implementation.Constants.Path;
-            DatabaseWriter dbWriter = new DatabaseWriter();
-            var fileReader = new FileReader(_display, path, min);
-            var words = fileReader.ParseText();
-            dbWriter.DatabaseInit(words);
+
+        }
+
+        private static void DeleteTableByName()
+        {
+            var connectionString = DBConstants.ConnectionString;
+            DatabaseWriter dbWriter = new DatabaseWriter(connectionString);
+            _display.Print("Enter table name: ");
+            var tableName = Console.ReadLine();
+            dbWriter.DeleteTableData(tableName);
         }
 
         public static void Menu()
         {
             _display.Print("Enter choice: ");
             _display.Print("**1 - api**");
-            _display.Print("**123 - databaseinit");
+            _display.Print("**123 - databaseinit**");
+            _display.Print("**555 - deletedatafromtable**");
             var choice = Console.ReadLine();
             switch (choice)
             {
@@ -44,10 +56,16 @@ namespace MainApp
                     GetApi();
                     break;
                 case "123":
-                    DbInit();
-
+                    DBUploader dbUploader = new DBUploader();
+                    dbUploader.DbInit();
                     break;
-                    
+                case "555":
+                    DeleteTableByName();
+                    break;
+                default:
+                    _display.Print("Unknown number");
+                    break;
+
             }
         }
 
