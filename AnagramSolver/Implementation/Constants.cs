@@ -11,5 +11,6 @@ namespace Implementation
     {
         public static string MinCount = ConfigurationManager.AppSettings["min"];
         public static string MaxResult = ConfigurationManager.AppSettings["maxResult"];
+        public static string Path = ConfigurationManager.AppSettings["filePath"];
     }
 }

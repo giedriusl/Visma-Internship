@@ -34,6 +34,7 @@ namespace Implementation
                 myWords = Regex.Replace(myWords, @"\s+", "");
                 var anagrams = FindAnagram(myWords);
                 anagrams.AddRange(FindTwoAnagrams(myWords));
+                anagrams.Sort();
                 return anagrams;
             } else
             {
