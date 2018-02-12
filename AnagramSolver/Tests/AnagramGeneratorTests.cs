@@ -38,11 +38,13 @@ namespace Tests
             var result = anagramGenerator.GetAnagrams(word);
 
             //Assert
-            Assert.AreEqual(anagrams.Count, result.Count);
-            for (int i = 0; i < anagrams.Count; i++)
-            {
-                Assert.AreEqual(anagrams[i], result[i]);
-            }
+            //Assert.AreEqual(anagrams.Count, result.Count);
+            //for (int i = 0; i < anagrams.Count; i++)
+            //{
+            //    Assert.AreEqual(anagrams[i], result[i]);
+            //}
+            CollectionAssert.AreEqual(anagrams, result);
+
         }
 
         [TestMethod]
@@ -52,7 +54,7 @@ namespace Tests
             var word = "alus";
             var anagrams = new List<string> { "alusa", "sula" };
             var result = anagramGenerator.GetAnagrams(word);
-            Assert.AreNotEqual(anagrams,result);
+            CollectionAssert.AreNotEqual(anagrams, result);
         }
 
 

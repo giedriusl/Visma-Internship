@@ -12,21 +12,24 @@ namespace MainApp
         {
             _display.Print("Press enter to continue..");
             string inputWord = Console.ReadLine();
-            GetAnagrams(inputWord).GetAwaiter().GetResult();
+            Console.WriteLine("A");
+            GetAnagrams(inputWord).Wait();
+            Console.WriteLine("B");
+            Console.ReadLine();
         }
 
         static async Task GetAnagrams(string inputWord)
         {
             try
             {
-                string resultanagrams = client.GetStringAsync($"http://localhost:54566/Home/GetApiAnagrams/?word={inputWord}").Result;
+                string resultanagrams = await client.GetStringAsync($"http://localhost:54566/Home/GetApiAnagrams/?word={inputWord}").ConfigureAwait(false);
                 _display.Print(resultanagrams);
+                Console.WriteLine("C");
             }
             catch (Exception e)
             {
                 _display.Print(e.Message);
             }
-            Console.ReadLine();
         }
     }
 }

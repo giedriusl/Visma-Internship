@@ -33,6 +33,7 @@ namespace Implementation
             {
                 myWords = Regex.Replace(myWords, @"\s+", "");
                 var anagrams = FindAnagram(myWords);
+                anagrams.AddRange(FindTwoAnagrams(myWords));
                 return anagrams;
             } else
             {
@@ -50,7 +51,7 @@ namespace Implementation
                 return results;
             } else
             {
-                return null;
+                return new List<string>();
             }
         }
 
@@ -90,9 +91,71 @@ namespace Implementation
             return new string(characters);
         }
 
-        public void FindTwoAnagrams()
+        public IEnumerable<string> FindTwoAnagrams(string myWords)
         {
+            myWords = Alphabetize(myWords);
+            var min = ConstantsHelper.ParseIntegerParameter(Constants.MinCount);
+            var maxWords = ConstantsHelper.ParseIntegerParameter(Constants.MaxResult);
+            var result = new List<string>();
+            for(int i = min; i < myWords.Length - min; i++)
+            {
+                var lengthDictionary = _anagramSet.Where(x => x.Key.Length == i);
+                foreach (var valueWords in lengthDictionary)
+                {
+                    var originalCharArray = myWords.ToList<char>();
+                    var partOfWord = RemovePart(originalCharArray, valueWords.Key);
+                    if (partOfWord == null)
+                    {
+                        continue;
+                    }
+                    var leftoverAnagram = new string(partOfWord.ToArray<char>());
+                    if (Contains(leftoverAnagram))
+                    {
+                        result.AddRange(JoinAnagrams(valueWords.Value, _anagramSet[leftoverAnagram]));
+                        if (result.Count > maxWords)
+                        {
+                            return result.Take(maxWords);
+                        }
+                        else continue;
+                    }
+                }
+            }
+            return result;
+        }
 
+        public List<string> JoinAnagrams(HashSet<string> firstSet, HashSet<string> secondSet)
+        {
+            var result = new List<string>();
+            foreach (var firstWord in firstSet)
+            {
+                foreach(var secondWord in secondSet)
+                {
+                    result.Add(firstWord + " " + secondWord);
+                }
+            }
+            return result;
+        }
+
+        public List<char> RemovePart(List<char> word, string part)
+        {
+            foreach (var c in part)
+            {
+                if (word.Contains(c))
+                {
+                    word.Remove(c);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            return word;
+        }
+
+        public List<string> SortByLength(List<string> list)
+        {
+            var result = list.OrderBy(x => x.Length).ToList();
+            return result;
         }
     }
 }
