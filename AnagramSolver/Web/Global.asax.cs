@@ -11,6 +11,7 @@ namespace Web
     {
         public static AnagramGenerator anagramGenerator;
         public static DatabaseReader dbReader;
+        public static DatabaseWriter dbWriter;
         public static DisplayWeb display;
 
         protected void Application_Start()
@@ -30,6 +31,7 @@ namespace Web
             var connectionString = Constants.ConnectionString;
             display = new DisplayWeb();
             dbReader = new DatabaseReader(connectionString);
+            dbWriter = new DatabaseWriter(connectionString);
             anagramGenerator = new AnagramGenerator(dbReader, minCount, maxResult);
         }
     }

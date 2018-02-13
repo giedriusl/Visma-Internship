@@ -1,10 +1,5 @@
-﻿using Implementation;
-using Interfaces;
+﻿using Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DBReader
 {
@@ -37,6 +32,7 @@ namespace DBReader
             _display.Print("Enter table name: ");
             var tableName = Console.ReadLine();
             dbWriter.DeleteTableData(tableName);
+            _display.Print("Success");
         }
 
     }

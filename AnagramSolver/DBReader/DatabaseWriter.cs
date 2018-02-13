@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -53,6 +54,32 @@ namespace DBReader
             table.Columns.Add("Word", typeof(string));
 
             listOfWords.ForEach(data => table.Rows.Add(1,data));
+            return table;
+        }
+
+        public void WriteCachedWord(string word, List<string> anagrams)
+        {
+            var sqlConnection = new SqlConnection(_connectionString);
+            var sqlBulkCopy = new SqlBulkCopy(sqlConnection)
+            {
+                DestinationTableName = "CachedWord",
+                BulkCopyTimeout = 6000
+            };
+            var dataTable = GetDataTableForCache(word, anagrams);
+            sqlConnection.Open();
+            sqlBulkCopy.WriteToServer(dataTable);
+            sqlBulkCopy.Close();
+            sqlConnection.Close();
+            sqlConnection.Dispose();
+        }
+
+        private DataTable GetDataTableForCache(string cachedWord, List<string> anagrams)
+        {
+            var table = new DataTable();
+            table.Columns.Add("SearchedWord", typeof(string));
+            table.Columns.Add("Anagram", typeof(string));
+
+            anagrams.ForEach(data => table.Rows.Add(cachedWord, data));
             return table;
         }
     }

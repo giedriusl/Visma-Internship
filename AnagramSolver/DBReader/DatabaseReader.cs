@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using Interfaces;
 
 namespace DBReader
@@ -53,6 +54,26 @@ namespace DBReader
         {
             var query = "SELECT word FROM Words";
             return ReadWords(query);
+        }
+
+        public List<string> GetCachedAnagrams(string word)
+        {
+            HashSet<string> anagrams = new HashSet<string>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT anagram FROM CachedWord WHERE searchedWord = @Word", connection);
+                SqlParameter parameter = new SqlParameter();
+                parameter.ParameterName = "@Word";
+                parameter.Value = word;
+                command.Parameters.Add(parameter);
+                command.Connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    anagrams.Add(reader.GetString(0));
+                }
+            }
+            return anagrams.ToList();
         }
     }
 }

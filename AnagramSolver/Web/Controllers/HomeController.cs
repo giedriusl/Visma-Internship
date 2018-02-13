@@ -1,8 +1,11 @@
 ﻿using PagedList;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Runtime.Caching;
 using System.Text;
 using System.Web;
 using System.Web.Http;
@@ -44,7 +47,16 @@ namespace Web.Controllers
             }
             httpCookie.Expires = DateTime.Now.AddDays(1);
             Response.Cookies.Add(httpCookie);
-            ViewBag.Model = MvcApplication.anagramGenerator.GetAnagrams(input);
+
+            var sortedWord = Alphabetize(input);
+            var anagrams = MvcApplication.dbReader.GetCachedAnagrams(sortedWord);
+            if(anagrams.Count == 0)
+            {
+                anagrams =  MvcApplication.anagramGenerator.GetAnagrams(input);
+                MvcApplication.dbWriter.WriteCachedWord(sortedWord, anagrams);
+            }
+            ViewBag.Model = anagrams;
+            
             return View();
         }
 
@@ -81,6 +93,13 @@ namespace Web.Controllers
             byte[] fileBytes = System.IO.File.ReadAllBytes(Constants.Path);
             string fileName = "dictionary.txt";
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+        public string Alphabetize(string word)
+        {
+            char[] characters = word.ToArray();
+            Array.Sort(characters);
+            return new string(characters);
         }
     }
 }
