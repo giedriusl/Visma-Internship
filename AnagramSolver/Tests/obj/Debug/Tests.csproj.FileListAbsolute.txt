@@ -66,9 +66,7 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\Newtonsoft.Json.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\DBReader.pdb
-C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\DBReader.dll.config
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\Implementation.pdb
-C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\Implementation.dll.config
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\Interfaces.pdb
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\MainApp.pdb
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\MainApp.exe.config

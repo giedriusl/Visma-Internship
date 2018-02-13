@@ -6,14 +6,14 @@ namespace DBReader
 {
     public class DatabaseReader : IWordRepository
     {
-        public static string ConnectionString;
+        private static string ConnectionString;
 
         public DatabaseReader(string connectionString)
         {
             ConnectionString = connectionString;
         }
 
-        public HashSet<string> ReadWords(string query)
+        private HashSet<string> ReadWords(string query)
         {
             HashSet<string> words = new HashSet<string>();
             using (SqlConnection connection = new SqlConnection(ConnectionString))

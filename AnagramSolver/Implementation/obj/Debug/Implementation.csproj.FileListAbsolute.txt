@@ -14,7 +14,6 @@ C:\Users\giedrius.lukocius\Desktop\AnagramSolver\Implementation\obj\Debug\Implem
 C:\Users\giedrius.lukocius\Desktop\AnagramSolver\Implementation\obj\Debug\Implementation.csproj.CoreCompileInputs.cache
 C:\Users\giedrius.lukocius\Desktop\AnagramSolver\Implementation\obj\Debug\Implementation.dll
 C:\Users\giedrius.lukocius\Desktop\AnagramSolver\Implementation\obj\Debug\Implementation.pdb
-C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Implementation\bin\Debug\Implementation.dll.config
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Implementation\bin\Debug\Implementation.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Implementation\bin\Debug\Implementation.pdb
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Implementation\bin\Debug\Interfaces.dll

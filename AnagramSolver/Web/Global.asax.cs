@@ -25,11 +25,12 @@ namespace Web
         private void CustomInit()
         {
             var path = Constants.Path;
-            var minCount = ConstantsHelper.ParseIntegerParameter(Constants.MinCount);
+            var minCount = Constants.MinCount;
+            var maxResult = Constants.MaxResult;
+            var connectionString = Constants.ConnectionString;
             display = new DisplayWeb();
-            //var connectionString = DBReader.Constants.ConnectionString;
-            dbReader = new DatabaseReader("Data Source=LT-LIT-SC-0015;Initial Catalog=AnagramsDB;Integrated Security=True");
-            anagramGenerator = new AnagramGenerator(dbReader, minCount);
+            dbReader = new DatabaseReader(connectionString);
+            anagramGenerator = new AnagramGenerator(dbReader, minCount, maxResult);
         }
     }
 }

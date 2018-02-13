@@ -5,8 +5,9 @@ namespace Web
 {
     public class Constants
     {
-        public static string Path = ConfigurationManager.AppSettings["filePath"];
-        public static string MinCount = ConfigurationManager.AppSettings["min"];
-        public static string MaxResult = ConfigurationManager.AppSettings["maxResult"];
+        public static string ConnectionString => ConfigurationManager.AppSettings["connectionString"];
+        public static int MinCount => ConstantsHelper.ParseIntegerParameter(ConfigurationManager.AppSettings["min"]);
+        public static int MaxResult => ConstantsHelper.ParseIntegerParameter(ConfigurationManager.AppSettings["maxResult"]);
+        public static string Path => ConfigurationManager.AppSettings["filePath"];
     }
 }

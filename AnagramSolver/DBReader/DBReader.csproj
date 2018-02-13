@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBConstants.cs" />
     <Compile Include="DatabaseReader.cs" />
     <Compile Include="DatabaseWriter.cs" />
     <Compile Include="DBUploader.cs" />
@@ -49,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Implementation\Implementation.csproj">
+      <Project>{7cb68b92-1835-436b-b6c4-78bdf74440a7}</Project>
+      <Name>Implementation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{932f0800-779f-4d68-ad5e-71a8fca96b7a}</Project>
       <Name>Interfaces</Name>

@@ -12,12 +12,14 @@ namespace Implementation
         private readonly IWordRepository _iWordsRepository;
         private Dictionary<string, HashSet<string>> _anagramSet = new Dictionary<string, HashSet<string>>();
         public HashSet<string> AllWords = new HashSet<string>();
-        private int _minCount;
+        private static int _minCount;
+        private static int _maxResult;
 
-        public AnagramGenerator(IWordRepository iWordRepository, int min)
+        public AnagramGenerator(IWordRepository iWordRepository, int min, int max)
         {
             _iWordsRepository = iWordRepository;
             _minCount = min;
+            _maxResult = max;
             Init();
         }
 
@@ -95,10 +97,9 @@ namespace Implementation
         public IEnumerable<string> FindTwoAnagrams(string myWords)
         {
             myWords = Alphabetize(myWords);
-            var min = ConstantsHelper.ParseIntegerParameter(Constants.MinCount);
-            var maxWords = ConstantsHelper.ParseIntegerParameter(Constants.MaxResult);
+            //var maxWords = ConstantsHelper.ParseIntegerParameter(Constants.MaxResult);
             var result = new List<string>();
-            for(int i = min; i < myWords.Length - min; i++)
+            for(int i = _minCount; i < myWords.Length - _minCount; i++)
             {
                 var lengthDictionary = _anagramSet.Where(x => x.Key.Length == i);
                 foreach (var valueWords in lengthDictionary)
@@ -113,9 +114,9 @@ namespace Implementation
                     if (Contains(leftoverAnagram))
                     {
                         result.AddRange(JoinAnagrams(valueWords.Value, _anagramSet[leftoverAnagram]));
-                        if (result.Count > maxWords)
+                        if (result.Count > _maxResult)
                         {
-                            return result.Take(maxWords);
+                            return result.Take(_maxResult);
                         }
                         else continue;
                     }

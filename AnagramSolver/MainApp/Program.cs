@@ -9,14 +9,15 @@ namespace MainApp
     {
         static HttpClient client = new HttpClient();
         private static DisplayConsole _display = new DisplayConsole();
+        private static DBUploader _dbUploader;
         private static int _minCount;
         private static int _maxResult;
         private static string _path;
-        private static string _connectionId;
+        private static string _connectionString;
 
         static void Main(string[] args)
         {
-
+            SettingsConfig();
             Menu();
         }
 
@@ -25,22 +26,17 @@ namespace MainApp
         {
             _display.Print("Enter word to find anagrams");
             string inputWord = Console.ReadLine();
-            GetAnagrams(inputWord).Wait();
+            GetAnagramsFromApi(inputWord).Wait();
             Console.ReadLine();
         }
 
-        public void SettingsConfig()
+        public static void SettingsConfig()
         {
-
-        }
-
-        private static void DeleteTableByName()
-        {
-            var connectionString = DBConstants.ConnectionString;
-            DatabaseWriter dbWriter = new DatabaseWriter(connectionString);
-            _display.Print("Enter table name: ");
-            var tableName = Console.ReadLine();
-            dbWriter.DeleteTableData(tableName);
+            _minCount = AppConstants.MinCount;
+            _maxResult = AppConstants.MaxResult;
+            _path = AppConstants.Path;
+            _connectionString = AppConstants.ConnectionString;
+            _dbUploader = new DBUploader(_display, _minCount, _path, _connectionString);
         }
 
         public static void Menu()
@@ -55,12 +51,12 @@ namespace MainApp
                 case "1":
                     GetApi();
                     break;
+
                 case "123":
-                    DBUploader dbUploader = new DBUploader();
-                    dbUploader.DbInit();
+                    _dbUploader.DbInit();
                     break;
                 case "555":
-                    DeleteTableByName();
+                    _dbUploader.DeleteTableByName();
                     break;
                 default:
                     _display.Print("Unknown number");
@@ -69,7 +65,7 @@ namespace MainApp
             }
         }
 
-        static async Task GetAnagrams(string inputWord)
+        static async Task GetAnagramsFromApi(string inputWord)
         {
             try
             {

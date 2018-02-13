@@ -38,11 +38,7 @@ namespace Tests
             var result = anagramGenerator.GetAnagrams(word);
 
             //Assert
-            //Assert.AreEqual(anagrams.Count, result.Count);
-            //for (int i = 0; i < anagrams.Count; i++)
-            //{
-            //    Assert.AreEqual(anagrams[i], result[i]);
-            //}
+            
             CollectionAssert.AreEqual(anagrams, result);
 
         }
@@ -61,7 +57,7 @@ namespace Tests
         public AnagramGenerator DefaultInit()
         {
             List<string> list = new List<string> { "alus", "sula", "medis", "namas", "obuolys" };
-            AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list), 2);
+            AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list), 2, 10);
             return anagramGenerator;
         }
         
