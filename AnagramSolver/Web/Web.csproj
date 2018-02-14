@@ -167,6 +167,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Anagram.cs" />
+    <Compile Include="Models\SearchHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +210,7 @@
     <Content Include="Views\Home\ShowDictionary.cshtml" />
     <Content Include="Views\Home\GetAnagramsFromDictionary.cshtml" />
     <Content Include="Views\Home\Downloads.cshtml" />
+    <Content Include="Views\Home\SearchHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,17 +7,17 @@ namespace DBReader
 {
     public class DatabaseReader : IWordRepository
     {
-        private static string ConnectionString;
+        private static string _connectionString;
 
         public DatabaseReader(string connectionString)
         {
-            ConnectionString = connectionString;
+            _connectionString = connectionString;
         }
 
         private HashSet<string> ReadWords(string query)
         {
             HashSet<string> words = new HashSet<string>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Connection.Open();
@@ -33,7 +33,7 @@ namespace DBReader
         public HashSet<string> FilterByWord(string filter)
         {
             HashSet<string> words = new HashSet<string>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand("SELECT word FROM Words WHERE word LIKE '%'+@Filter+'%'", connection);
                 SqlParameter parameter = new SqlParameter();
@@ -59,9 +59,11 @@ namespace DBReader
         public List<string> GetCachedAnagrams(string word)
         {
             HashSet<string> anagrams = new HashSet<string>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT anagram FROM CachedWord WHERE searchedWord = @Word", connection);
+                SqlCommand command = new SqlCommand("SELECT anagram FROM CachedAnagrams AS a " +
+                                                    "JOIN CachedWords AS w ON a.WordId = w.Id " +
+                                                    "WHERE w.Word = @Word", connection);
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@Word";
                 parameter.Value = word;
@@ -74,6 +76,27 @@ namespace DBReader
                 }
             }
             return anagrams.ToList();
+        }
+
+        public List<SearchHistory> GetSearchHistory(string ip)
+        {
+            List<SearchHistory> history = new List<SearchHistory>();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT u.userIp, u.searchTime, w.Word, ca.anagram FROM UserLog AS u JOIN CachedWords AS cw ON u.CachedWordId = cw.Id" +
+                    " JOIN CachedAnagrams AS ca ON cw.Id = ca.WordId JOIN Words AS w ON u.WordId = w.Id ", connection);
+                var parameter = new SqlParameter();
+                parameter.ParameterName = "@IP";
+                parameter.Value = ip;
+                command.Parameters.Add(parameter);
+                command.Connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    history.Add(new SearchHistory(reader.GetString(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3)));
+                }
+            }
+            return history;
         }
     }
 }
