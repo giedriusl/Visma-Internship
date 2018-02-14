@@ -55,6 +55,22 @@ namespace DBReader
             var wordToSave = new CachedWord { Word = word };
             anagramEntities.CachedWords.Add(wordToSave);
             anagramEntities.SaveChanges();
+            var wordId = wordToSave.Id;
+            foreach (var anagram in anagrams)
+            {
+                var anagramToSave = new CachedAnagram { WordId = wordId, Anagram = anagram };
+                anagramEntities.CachedAnagrams.Add(anagramToSave);
+            }
+            anagramEntities.SaveChanges();
+        }
+
+        public void SaveUserSearch(string ip, long time, string sortedWord, string originalWord)
+        {
+            var sortedWordID = anagramEntities.CachedWords.Where(x => x.Word == sortedWord).Select(x => x.Id).FirstOrDefault();
+            var originalWordID = anagramEntities.Words.Where(x => x.Word1 == originalWord).Select(x => x.Id).FirstOrDefault();
+            var recordToSave = new UserLog { UserIp = ip, CachedWordId = sortedWordID, WordId = originalWordID, SearchTime = (int)time };
+            anagramEntities.UserLogs.Add(recordToSave);
+            anagramEntities.SaveChanges();
         }
     }
 }

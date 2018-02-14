@@ -32,7 +32,7 @@ namespace Web.Controllers
             var timeResult = timer.ElapsedMilliseconds;
             string userIP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
             var input = Alphabetize(anagram.Name);
-            MvcApplication.dbWriter.SaveUserSearch(userIP, timeResult, input, anagram.Name);
+            MvcApplication.efRepository.SaveUserSearch(userIP, timeResult, input, anagram.Name);
             return View();
         }
 
@@ -93,7 +93,7 @@ namespace Web.Controllers
             if (anagrams.Count == 0)
             {
                 anagrams = MvcApplication.anagramGenerator.GetAnagrams(input);
-                MvcApplication.dbWriter.WriteCachedWord(sortedWord, anagrams);
+                MvcApplication.efRepository.WriteCachedWord(sortedWord, anagrams);
             }
             return anagrams;
         }
