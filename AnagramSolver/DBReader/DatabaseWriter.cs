@@ -30,6 +30,8 @@ namespace DBReader
             }
         }
 
+
+
         public void DatabaseInit(HashSet<string> words)
         {
             var sqlConnection = new SqlConnection(_connectionString);

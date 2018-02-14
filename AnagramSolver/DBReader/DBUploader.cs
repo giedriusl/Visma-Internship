@@ -24,6 +24,7 @@ namespace DBReader
             var fileReader = new FileReader(_display, _path, _min);
             var words = fileReader.ParseText();
             dbWriter.DatabaseInit(words);
+            _display.Print("Success");
         }
 
         public void DeleteTableByName()

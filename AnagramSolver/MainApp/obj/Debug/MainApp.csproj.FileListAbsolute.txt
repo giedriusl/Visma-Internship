@@ -40,3 +40,6 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\MainApp\bin\Debug\EntityFramework.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\MainApp\bin\Debug\DBReader.dll.config
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\MainApp\bin\Debug\EntityFramework.xml
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\MainApp\bin\Debug\AnagramSolver.EFCF.Core.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\MainApp\bin\Debug\AnagramSolver.EFCF.Core.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\MainApp\bin\Debug\AnagramSolver.EFCF.Core.dll.config

@@ -31,9 +31,9 @@ namespace Web
             var maxResult = Constants.MaxResult;
             var connectionString = Constants.ConnectionString;
             display = new DisplayWeb();
+            efRepository = new EFRepository();
             dbReader = new DatabaseReader(connectionString);
             dbWriter = new DatabaseWriter(connectionString);
-            efRepository = new EFRepository();
             anagramGenerator = new AnagramGenerator(dbReader, minCount, maxResult);
         }
     }

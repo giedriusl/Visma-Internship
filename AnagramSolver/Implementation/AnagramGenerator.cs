@@ -60,6 +60,7 @@ namespace Implementation
 
         public void ReadWordsFromDictionary()
         {
+
             var parsedText = _iWordsRepository.ParseText();
             if (parsedText != null)
             {
