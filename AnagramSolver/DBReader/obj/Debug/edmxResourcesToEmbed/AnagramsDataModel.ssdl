@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnagramsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CachedAnagrams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WordId" Type="int" Nullable="false" />
+    <Property Name="Anagram" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CachedWords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Word" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AnagramsDB.dbo.UserLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserLog">
+    <Key>
+      <PropertyRef Name="UserIp" />
+    </Key>
+    <Property Name="UserIp" Type="nvarchar" MaxLength="39" Nullable="false" />
+    <Property Name="CachedWordId" Type="int" />
+    <Property Name="WordId" Type="int" />
+    <Property Name="SearchTime" Type="int" />
+  </EntityType>
+  <EntityType Name="Words">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Word" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_CachedAnagrams_CachedWords">
+    <End Role="CachedWords" Type="Self.CachedWords" Multiplicity="1" />
+    <End Role="CachedAnagrams" Type="Self.CachedAnagrams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CachedWords">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CachedAnagrams">
+        <PropertyRef Name="WordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLog_CachedWords">
+    <End Role="CachedWords" Type="Self.CachedWords" Multiplicity="0..1" />
+    <End Role="UserLog" Type="Self.UserLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CachedWords">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLog">
+        <PropertyRef Name="CachedWordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLog_Words">
+    <End Role="Words" Type="Self.Words" Multiplicity="0..1" />
+    <End Role="UserLog" Type="Self.UserLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Words">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLog">
+        <PropertyRef Name="WordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AnagramsDBModelStoreContainer">
+    <EntitySet Name="CachedAnagrams" EntityType="Self.CachedAnagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CachedWords" EntityType="Self.CachedWords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Words" EntityType="Self.Words" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLog" EntityType="Self.UserLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserLog].[UserIp] AS [UserIp], 
+    [UserLog].[CachedWordId] AS [CachedWordId], 
+    [UserLog].[WordId] AS [WordId], 
+    [UserLog].[SearchTime] AS [SearchTime]
+    FROM [dbo].[UserLog] AS [UserLog]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CachedAnagrams_CachedWords" Association="Self.FK_CachedAnagrams_CachedWords">
+      <End Role="CachedWords" EntitySet="CachedWords" />
+      <End Role="CachedAnagrams" EntitySet="CachedAnagrams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLog_CachedWords" Association="Self.FK_UserLog_CachedWords">
+      <End Role="CachedWords" EntitySet="CachedWords" />
+      <End Role="UserLog" EntitySet="UserLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLog_Words" Association="Self.FK_UserLog_Words">
+      <End Role="Words" EntitySet="Words" />
+      <End Role="UserLog" EntitySet="UserLog" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

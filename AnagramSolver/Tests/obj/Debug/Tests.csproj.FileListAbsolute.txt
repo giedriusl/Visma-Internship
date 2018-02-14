@@ -90,3 +90,6 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\obj\Debug\Tests.csproj.CoreCompileInputs.cache
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\obj\Debug\Tests.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\obj\Debug\Tests.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\EntityFramework.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\DBReader.dll.config
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\EntityFramework.xml

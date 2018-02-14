@@ -89,7 +89,7 @@ namespace Web.Controllers
         public List<string> CacheWords(string input)
         {
             var sortedWord = Alphabetize(input);
-            var anagrams = MvcApplication.dbReader.GetCachedAnagrams(sortedWord);
+            var anagrams = MvcApplication.efRepository.GetCachedAnagrams(sortedWord);
             if (anagrams.Count == 0)
             {
                 anagrams = MvcApplication.anagramGenerator.GetAnagrams(input);
@@ -117,7 +117,7 @@ namespace Web.Controllers
         public ActionResult SearchHistory()
         {
             string userIP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
-            ViewBag.Model = MvcApplication.dbReader.GetSearchHistory(userIP);
+            ViewBag.Model = MvcApplication.efRepository.GetSearchHistory(userIP);
             return View();
         }
     }

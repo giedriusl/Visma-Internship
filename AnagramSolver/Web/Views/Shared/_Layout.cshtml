@@ -16,12 +16,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Anagram Generator", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("GenerateAnagrams", "GetAnagrams", "Home", new { area = "" } , new { @class = "navbar-brand"})
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("GenerateAnagrams", "GetAnagrams", "Home")</li>
                     <li>@Html.ActionLink("Dictionary", "ShowDictionary", "Home")</li>
                     <li>@Html.ActionLink("Downloads", "Downloads", "Home")</li>
                     <li>@Html.ActionLink("SearchHistory", "SearchHistory", "Home")</li>

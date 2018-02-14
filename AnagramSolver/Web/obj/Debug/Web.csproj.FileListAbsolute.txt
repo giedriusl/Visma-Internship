@@ -56,3 +56,8 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Web\obj\Debug\Web.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Web\obj\Debug\Web.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Web\bin\EntityFramework.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Web\bin\DBReader.dll.config
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Web\bin\EntityFramework.xml
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Web\bin\EntityFramework.SqlServer.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Web\bin\EntityFramework.SqlServer.xml

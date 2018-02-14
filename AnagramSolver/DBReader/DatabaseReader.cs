@@ -62,8 +62,8 @@ namespace DBReader
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand("SELECT anagram FROM CachedAnagrams AS a " +
-                                                    "JOIN CachedWords AS w ON a.WordId = w.Id " +
-                                                    "WHERE w.Word = @Word", connection);
+                                                    "JOIN CachedWords AS cw ON a.WordId = w.Id " +
+                                                    "WHERE cw.Word = @Word", connection);
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@Word";
                 parameter.Value = word;
@@ -83,8 +83,18 @@ namespace DBReader
             List<SearchHistory> history = new List<SearchHistory>();
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT u.userIp, u.searchTime, w.Word, ca.anagram FROM UserLog AS u JOIN CachedWords AS cw ON u.CachedWordId = cw.Id" +
-                    " JOIN CachedAnagrams AS ca ON cw.Id = ca.WordId JOIN Words AS w ON u.WordId = w.Id ", connection);
+                SqlCommand command = new SqlCommand(@"
+SELECT 
+    u.UserIp
+    , u.SearchTime
+    , w.Word
+    , ca.Anagram 
+FROM UserLog AS u 
+INNER JOIN CachedWords AS cw ON u.CachedWordId = cw.Id
+LEFT JOIN CachedAnagrams AS ca ON cw.Id = ca.WordId 
+LEFT JOIN Words AS w ON u.WordId = w.Id 
+WHERE u.UserIp = @IP
+", connection);
                 var parameter = new SqlParameter();
                 parameter.ParameterName = "@IP";
                 parameter.Value = ip;
@@ -93,7 +103,11 @@ namespace DBReader
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    history.Add(new SearchHistory(reader.GetString(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3)));
+                    var word = default(string);
+                    if (!reader.IsDBNull(2))
+                        word = reader.GetString(2);
+
+                    history.Add(new SearchHistory(reader.GetString(0), reader.GetInt32(1), word, reader.GetString(3)));
                 }
             }
             return history;
