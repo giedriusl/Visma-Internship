@@ -10,15 +10,16 @@ namespace MainApp
         static HttpClient client = new HttpClient();
         private static DisplayConsole _display = new DisplayConsole();
         private static DBUploader _dbUploader;
-        private static int _minCount;
-        private static int _maxResult;
-        private static string _path;
-        private static string _connectionString;
+        private static int minCount;
+        private static int maxResult;
+        private static string path;
+        private static string connectionString;
 
         static void Main(string[] args)
         {
             SettingsConfig();
             Menu();
+            Console.ReadLine();
         }
 
 
@@ -32,11 +33,11 @@ namespace MainApp
 
         public static void SettingsConfig()
         {
-            _minCount = AppConstants.MinCount;
-            _maxResult = AppConstants.MaxResult;
-            _path = AppConstants.Path;
-            _connectionString = AppConstants.ConnectionString;
-            _dbUploader = new DBUploader(_display, _minCount, _path, _connectionString);
+            minCount = AppConstants.MinCount;
+            maxResult = AppConstants.MaxResult;
+            path = AppConstants.Path;
+            connectionString = AppConstants.ConnectionString;
+            _dbUploader = new DBUploader(_display, minCount, path, connectionString);
         }
 
         public static void Menu()

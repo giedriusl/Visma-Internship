@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "SearchHistory";
+}
+
+<h2>SearchHistory</h2>
+@if (ViewBag.Model != null)
+{
+
+    <h3>UserIP, SearchTime, SearchedWord, Anagram </h3>
+    <ul>
+        @foreach (var record in ViewBag.Model)
+        {
+            <li>@record.UserIp, @record.SearchTime, @record.SearchedWord, @record.Anagram</li>
+        }
+    </ul>
+}
