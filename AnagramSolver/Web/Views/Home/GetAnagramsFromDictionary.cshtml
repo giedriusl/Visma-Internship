@@ -3,6 +3,11 @@
     ViewBag.Title = "GetAnagramsFromDictionary";
 }
 <h3>Last search: @Response.Cookies["LastSearch"].Value</h3>
+@using (Html.BeginForm("GetAnagramsFromDictionary", "Home", FormMethod.Get))
+{
+    @Html.TextBox("input")
+    <input type="submit" value="Search">
+}
 @if (ViewBag.Model != null)
 {
     <ul>

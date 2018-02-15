@@ -78,9 +78,9 @@ namespace DBReader
             return anagrams.ToList();
         }
 
-        public List<SearchHistory> GetSearchHistory(string ip)
+        public List<SearchHistoryDto> GetSearchHistory(string ip)
         {
-            List<SearchHistory> history = new List<SearchHistory>();
+            List<SearchHistoryDto> history = new List<SearchHistoryDto>();
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(@"
@@ -107,7 +107,7 @@ WHERE u.UserIp = @IP
                     if (!reader.IsDBNull(2))
                         word = reader.GetString(2);
 
-                    history.Add(new SearchHistory(reader.GetString(0), reader.GetInt32(1), word, reader.GetString(3)));
+                    history.Add(new SearchHistoryDto(reader.GetString(0), reader.GetInt32(1), word, reader.GetString(3)));
                 }
             }
             return history;

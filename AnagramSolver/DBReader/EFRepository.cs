@@ -40,18 +40,17 @@ namespace DBReader
             return cachedAnagrams;
         }
 
-        public List<SearchHistory> GetSearchHistory(string ip)
+        public List<SearchHistoryDto> GetSearchHistory(string ip)
         {
             var words = (from u in _anagramEntities.UserLogs
                          join cw in _anagramEntities.CachedWords on u.CachedWordId equals cw.Id
                          join ca in _anagramEntities.CachedAnagrams on cw.Id equals ca.WordId
-                         join w in _anagramEntities.Words on u.WordId equals w.Id
                          where u.UserIp == ip
-                         select new SearchHistory
+                         select new SearchHistoryDto
                          {
                              UserIp = u.UserIp,
                              SearchTime = u.SearchTime,
-                             SearchedWord = w.Word,
+                             SearchedWord = u.Word,
                              Anagram = ca.Anagram
                          }).ToList();
             return words;
@@ -74,8 +73,7 @@ namespace DBReader
         public void SaveUserSearch(string ip, long time, string sortedWord, string originalWord)
         {
             var sortedWordID = _anagramEntities.CachedWords.Where(x => x.Word == sortedWord).Select(x => x.Id).FirstOrDefault();
-            var originalWordID = _anagramEntities.Words.Where(x => x.Word == originalWord).Select(x => x.Id).FirstOrDefault();
-            var recordToSave = new UserLogs { UserIp = ip, CachedWordId = sortedWordID, WordId = originalWordID, SearchTime = (int)time };
+            var recordToSave = new UserLogs { UserIp = ip, CachedWordId = sortedWordID, Word = originalWord, SearchTime = (int)time };
             _anagramEntities.UserLogs.Add(recordToSave);
             _anagramEntities.SaveChanges();
         }

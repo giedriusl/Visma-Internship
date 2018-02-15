@@ -8,8 +8,8 @@ namespace Web.Models
     public class SearchHistory
     {
         public string UserIp { get; set; }
-        public int TimeElapsed { get; set; }
+        public int? TimeElapsed { get; set; }
         public string Word { get; set; }
-        public string Anagram { get; set; }
+        public List<string> Anagrams { get; set; }
     }
 }

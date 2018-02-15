@@ -12,3 +12,6 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.Init.resources
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.csproj.GenerateResource.Cache
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.AddChanges.resources
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.DeleteUserLogsForeignKey.resources
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.UserLogChangeWordIdToWord.resources
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.UserLogColumnsOrder.resources

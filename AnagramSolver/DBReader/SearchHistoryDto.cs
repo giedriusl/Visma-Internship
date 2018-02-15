@@ -1,18 +1,18 @@
 ﻿namespace DBReader
 {
-    public class SearchHistory
+    public class SearchHistoryDto
     {
         public string UserIp { get; set; }
         public int? SearchTime { get; set; }
         public string SearchedWord { get; set; }
         public string Anagram { get; set; }
 
-        public SearchHistory()
+        public SearchHistoryDto()
         {
 
         }
 
-        public SearchHistory(string userip, int searchtime, string searchedword, string anagram)
+        public SearchHistoryDto(string userip, int searchtime, string searchedword, string anagram)
         {
             UserIp = userip;
             SearchTime = searchtime;

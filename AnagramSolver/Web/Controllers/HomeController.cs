@@ -21,26 +21,17 @@ namespace Web.Controllers
             return View();
         }
 
-        [System.Web.Mvc.HttpPost]
-        public ActionResult GetAnagrams(Anagram anagram)
-        {
-            Cookies(anagram.Name);
-            Stopwatch timer = new Stopwatch();
-            timer.Start();
-            ViewBag.Model = CacheWords(anagram.Name);
-            timer.Stop();
-            var timeResult = timer.ElapsedMilliseconds;
-            string userIP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
-            var input = Alphabetize(anagram.Name);
-            MvcApplication.efRepository.SaveUserSearch(userIP, timeResult, input, anagram.Name);
-            return View();
-        }
-
         public ActionResult GetAnagramsFromDictionary(string input)
         {
             Cookies(input);
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
             ViewBag.Model = CacheWords(input);
-            
+            timer.Stop();
+            var timeResult = timer.ElapsedMilliseconds;
+            string userIp = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
+            var sortedInput = Alphabetize(input);
+            MvcApplication.efRepository.SaveUserSearch(userIp, timeResult, sortedInput, input);
             return View();
         }
 
@@ -117,7 +108,8 @@ namespace Web.Controllers
         public ActionResult SearchHistory()
         {
             string userIP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
-            ViewBag.Model = MvcApplication.efRepository.GetSearchHistory(userIP);
+            //var dbSearchHistory = MvcApplication.efRepository.GetSearchHistory(userIP);
+            ViewBag.Model = MvcApplication.efRepository.GetSearchHistory(userIP);//Mapper.Map(dbSearchHistory);
             return View();
         }
     }

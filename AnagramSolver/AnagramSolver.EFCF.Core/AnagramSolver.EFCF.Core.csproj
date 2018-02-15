@@ -56,6 +56,18 @@
     <Compile Include="Migrations\201802141558078_AddChanges.Designer.cs">
       <DependentUpon>201802141558078_AddChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802150747222_DeleteUserLogsForeignKey.cs" />
+    <Compile Include="Migrations\201802150747222_DeleteUserLogsForeignKey.Designer.cs">
+      <DependentUpon>201802150747222_DeleteUserLogsForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802150803280_UserLogChangeWordIdToWord.cs" />
+    <Compile Include="Migrations\201802150803280_UserLogChangeWordIdToWord.Designer.cs">
+      <DependentUpon>201802150803280_UserLogChangeWordIdToWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802150807183_UserLogColumnsOrder.cs" />
+    <Compile Include="Migrations\201802150807183_UserLogColumnsOrder.Designer.cs">
+      <DependentUpon>201802150807183_UserLogColumnsOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\CachedAnagrams.cs" />
     <Compile Include="Model\CachedWords.cs" />
@@ -75,6 +87,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802141558078_AddChanges.resx">
       <DependentUpon>201802141558078_AddChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802150747222_DeleteUserLogsForeignKey.resx">
+      <DependentUpon>201802150747222_DeleteUserLogsForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802150803280_UserLogChangeWordIdToWord.resx">
+      <DependentUpon>201802150803280_UserLogChangeWordIdToWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802150807183_UserLogColumnsOrder.resx">
+      <DependentUpon>201802150807183_UserLogColumnsOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
