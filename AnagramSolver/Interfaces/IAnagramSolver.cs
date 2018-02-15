@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    public interface IAnagramSolver
+    public interface IAnagramSolver<T>
     {
-        List<string> GetAnagrams(string myWords);
+        List<T> GetAnagrams(string myWords);
     }
 }

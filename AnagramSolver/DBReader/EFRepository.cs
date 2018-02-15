@@ -40,20 +40,18 @@ namespace DBReader
             return cachedAnagrams;
         }
 
-        public List<SearchHistoryDto> GetSearchHistory(string ip)
+        public List<SearchHistory> GetSearchHistory(string ip)
         {
-            var words = (from u in _anagramEntities.UserLogs
-                         join cw in _anagramEntities.CachedWords on u.CachedWordId equals cw.Id
-                         join ca in _anagramEntities.CachedAnagrams on cw.Id equals ca.WordId
-                         where u.UserIp == ip
-                         select new SearchHistoryDto
-                         {
-                             UserIp = u.UserIp,
-                             SearchTime = u.SearchTime,
-                             SearchedWord = u.Word,
-                             Anagram = ca.Anagram
-                         }).ToList();
-            return words;
+            var words = _anagramEntities.UserLogs
+                    .Where(x => x.UserIp == ip)
+                    .Select(x => new 
+                    {
+                        UserIp = x.UserIp,
+                        SearchTime = x.SearchTime,
+                        SearchedWord = x.Word,
+                        Anagrams = x.CachedWord.CachedAnagrams
+                    }).ToList();
+            return null;
         }
 
         public void WriteCachedWord(string word, List<string> anagrams)

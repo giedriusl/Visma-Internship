@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Implementation
 {
-    public class AnagramGenerator : IAnagramSolver
+    public class AnagramGenerator : IAnagramSolver<string>
     {
         private readonly IWordRepository _iWordsRepository;
         private Dictionary<string, HashSet<string>> _anagramSet = new Dictionary<string, HashSet<string>>();

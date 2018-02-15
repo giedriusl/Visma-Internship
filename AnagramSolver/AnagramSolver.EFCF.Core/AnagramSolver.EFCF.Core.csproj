@@ -68,6 +68,14 @@
     <Compile Include="Migrations\201802150807183_UserLogColumnsOrder.Designer.cs">
       <DependentUpon>201802150807183_UserLogColumnsOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802151237514_FixCachedAnagrams.cs" />
+    <Compile Include="Migrations\201802151237514_FixCachedAnagrams.Designer.cs">
+      <DependentUpon>201802151237514_FixCachedAnagrams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802151244172_CachedAnagramsNotNullable.cs" />
+    <Compile Include="Migrations\201802151244172_CachedAnagramsNotNullable.Designer.cs">
+      <DependentUpon>201802151244172_CachedAnagramsNotNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\CachedAnagrams.cs" />
     <Compile Include="Model\CachedWords.cs" />
@@ -96,6 +104,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802150807183_UserLogColumnsOrder.resx">
       <DependentUpon>201802150807183_UserLogColumnsOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802151237514_FixCachedAnagrams.resx">
+      <DependentUpon>201802151237514_FixCachedAnagrams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802151244172_CachedAnagramsNotNullable.resx">
+      <DependentUpon>201802151244172_CachedAnagramsNotNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
