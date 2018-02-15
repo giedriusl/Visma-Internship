@@ -27,13 +27,12 @@ namespace Web
         private void CustomInit()
         {
             var path = Constants.Path;
-            var minCount = Constants.MinCount;
-            var maxResult = Constants.MaxResult;
+            
             var connectionString = Constants.ConnectionString;
             efRepository = new EFRepository();
             dbReader = new DatabaseReader(connectionString);
             dbWriter = new DatabaseWriter(connectionString);
-            anagramGenerator = new AnagramGenerator(dbReader, minCount, maxResult);
+            //anagramGenerator = new AnagramGenerator(dbReader, minCount, maxResult);
         }
 
     }

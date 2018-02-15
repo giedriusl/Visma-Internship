@@ -1,6 +1,7 @@
 ﻿using Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -18,8 +19,8 @@ namespace Implementation
         public AnagramGenerator(IWordRepository iWordRepository, int min, int max)
         {
             _iWordsRepository = iWordRepository;
-            _minCount = min;
-            _maxResult = max;
+            _minCount = Int32.Parse(ConfigurationManager.AppSettings["min"]);
+            _maxResult = Int32.Parse(ConfigurationManager.AppSettings["maxResult"]);
             Init();
         }
 
@@ -98,7 +99,6 @@ namespace Implementation
         public IEnumerable<string> FindTwoAnagrams(string myWords)
         {
             myWords = Alphabetize(myWords);
-            //var maxWords = ConstantsHelper.ParseIntegerParameter(Constants.MaxResult);
             var result = new List<string>();
             for(int i = _minCount; i < myWords.Length - _minCount; i++)
             {
