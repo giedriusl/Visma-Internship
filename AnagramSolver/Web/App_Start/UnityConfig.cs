@@ -43,25 +43,24 @@ namespace Web
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            var path = Constants.Path;
-            var minCount = Constants.MinCount;
-            var maxResult = Constants.MaxResult;
-            var connectionString = Constants.ConnectionString;
+            //var path = Constants.Path;
+            //var minCount = Constants.MinCount;
+            //var maxResult = Constants.MaxResult;
+            //var connectionString = Constants.ConnectionString;
             container
                 .RegisterType<IWordRepository, EFRepository>(
                     new ContainerControlledLifetimeManager(), new InjectionConstructor())
                 .RegisterType<IAnagramSolver<string>, AnagramGenerator>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor(new EFRepository()))
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<IUserLogsRepository, UserLogsRepositoryEF>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<ICachedWordsRepository, CachedWordsRepositoryEF>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<ICachedAnagramsRepository, CachedAnagramsRepositoryEF>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<IWordsRepository, WordsRepositoryEF>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
-                .RegisterType<DbContext, AnagramsContext>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor());
+                    new ContainerControlledLifetimeManager())
+                .RegisterType<DbContext, AnagramsContext>(new ContainerControlledLifetimeManager());
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();

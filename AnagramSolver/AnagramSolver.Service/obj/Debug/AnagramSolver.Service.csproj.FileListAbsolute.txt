@@ -1,0 +1,6 @@
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\AnagramSolver.Service.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\AnagramSolver.Service.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\obj\Debug\AnagramSolver.Service.csproj.CoreCompileInputs.cache
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\obj\Debug\AnagramSolver.Service.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\obj\Debug\AnagramSolver.Service.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\obj\Debug\AnagramSolver.Service.csprojResolveAssemblyReference.cache

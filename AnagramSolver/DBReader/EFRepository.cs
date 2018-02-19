@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AnagramSolver.EFCF.Core.Context;
-using AnagramSolver.EFCF.Core.Model;
+using AnagramSolver.Models;
+//using AnagramSolver.EFCF.Core.Model;
 using Interfaces;
 using Interfaces.DTOs;
 
@@ -30,7 +31,6 @@ namespace DBReader
             return filteredWords;
         }
 
-        //Neaisku!!!!!!!!!!!!!!!!!!!!!
         public List<string> GetCachedAnagrams(string word)
         {
             var words = (from ca in _anagramEntities.CachedAnagrams

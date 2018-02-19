@@ -1,4 +1,4 @@
-﻿using AnagramSolver.Models;
+﻿using AnagramSolver.EFCF.Core.Model;
 using Interfaces.Repositories;
 
 namespace Interfaces

@@ -76,6 +76,14 @@
     <Compile Include="Migrations\201802151244172_CachedAnagramsNotNullable.Designer.cs">
       <DependentUpon>201802151244172_CachedAnagramsNotNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802191132005_Models.Words.cs" />
+    <Compile Include="Migrations\201802191132005_Models.Words.Designer.cs">
+      <DependentUpon>201802191132005_Models.Words.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802191143575_models.cs" />
+    <Compile Include="Migrations\201802191143575_models.Designer.cs">
+      <DependentUpon>201802191143575_models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\CachedAnagrams.cs" />
     <Compile Include="Model\CachedWords.cs" />
@@ -111,6 +119,18 @@
     <EmbeddedResource Include="Migrations\201802151244172_CachedAnagramsNotNullable.resx">
       <DependentUpon>201802151244172_CachedAnagramsNotNullable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802191132005_Models.Words.resx">
+      <DependentUpon>201802191132005_Models.Words.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802191143575_models.resx">
+      <DependentUpon>201802191143575_models.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnagramSolver.Models\AnagramSolver.Models.csproj">
+      <Project>{7EA972D4-516A-41F5-A5DD-13B9E0B421EB}</Project>
+      <Name>AnagramSolver.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

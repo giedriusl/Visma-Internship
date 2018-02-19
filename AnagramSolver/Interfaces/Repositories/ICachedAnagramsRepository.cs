@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using AnagramSolver.Models;
+using System.Collections.Generic;
 
 namespace Interfaces
 {
     public interface ICachedAnagramsRepository
     {
-        List<string> GetCachedAnagrams();
+        void WriteCachedAnagram(CachedAnagrams anagram);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AnagramSolver.EFCF.Core.Context;
-using AnagramSolver.EFCF.Core.Model;
+using AnagramSolver.Models;
+//using AnagramSolver.EFCF.Core.Model;
 using Interfaces;
 using System.Linq;
 

@@ -60,7 +60,7 @@
       <Name>AnagramSolver.EFCF.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\AnagramSolver.Models\AnagramSolver.Models.csproj">
-      <Project>{7ea972d4-516a-41f5-a5dd-13b9e0b421eb}</Project>
+      <Project>{7EA972D4-516A-41F5-A5DD-13B9E0B421EB}</Project>
       <Name>AnagramSolver.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">

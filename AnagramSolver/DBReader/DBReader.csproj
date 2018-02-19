@@ -70,6 +70,10 @@
       <Project>{7EA972D4-516A-41F5-A5DD-13B9E0B421EB}</Project>
       <Name>AnagramSolver.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AnagramSolver.Repositories\AnagramSolver.Repositories.csproj">
+      <Project>{D4A925BA-D7D1-47C7-AAB3-67F498B74B1F}</Project>
+      <Name>AnagramSolver.Repositories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Implementation\Implementation.csproj">
       <Project>{7cb68b92-1835-436b-b6c4-78bdf74440a7}</Project>
       <Name>Implementation</Name>
