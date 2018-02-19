@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Unity;
 
 namespace Web
 {
@@ -13,7 +14,6 @@ namespace Web
         public static DatabaseReader dbReader;
         public static DatabaseWriter dbWriter;
         public static EFRepository efRepository;
-        public static DisplayWeb display;
 
         protected void Application_Start()
         {
@@ -27,14 +27,13 @@ namespace Web
         private void CustomInit()
         {
             var path = Constants.Path;
-            var minCount = Constants.MinCount;
-            var maxResult = Constants.MaxResult;
+            
             var connectionString = Constants.ConnectionString;
-            display = new DisplayWeb();
+            efRepository = new EFRepository();
             dbReader = new DatabaseReader(connectionString);
             dbWriter = new DatabaseWriter(connectionString);
-            efRepository = new EFRepository();
-            anagramGenerator = new AnagramGenerator(dbReader, minCount, maxResult);
+            //anagramGenerator = new AnagramGenerator(dbReader, minCount, maxResult);
         }
+
     }
 }

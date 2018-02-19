@@ -29,3 +29,6 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\EntityFramework.xml
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\AnagramSolver.EFCF.Core.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\AnagramSolver.EFCF.Core.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\DBReader\bin\Debug\AnagramSolver.EFCF.Core.dll.config

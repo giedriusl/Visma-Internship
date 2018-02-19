@@ -8,10 +8,43 @@
 {
 
     <h3>UserIP, SearchTime, SearchedWord, Anagram </h3>
-    <ul>
-        @foreach (var record in ViewBag.Model)
+
+    @*@foreach (var record in ViewBag.Model)
         {
             <li>@record.UserIp, @record.SearchTime, @record.SearchedWord, @record.Anagram</li>
-        }
-    </ul>
+        }*@
+    <table>
+        <tr>
+            @foreach (var item in ViewBag.Model)
+            {
+                <td>@item.UserIp</td>
+            }
+        </tr>
+        <tr>
+            @foreach (var item in ViewBag.Model)
+            {
+                <td>@item.SearchTime </td>
+            }
+        </tr>
+        <tr>
+            @foreach (var item in ViewBag.Model)
+            {
+                <td>@item.SearchedWord </td>
+            }
+        </tr>
+        <tr>
+            @foreach (var item in ViewBag.Model)
+            {
+                <td>
+                    @for (int i = 0; i < item.Docs.Count; i++)
+                    {
+                        @item.Anagrams[i]
+                    }
+
+                </td>
+            }
+        </tr>
+
+    </table>
 }
+

@@ -78,7 +78,7 @@ namespace DBReader
             return anagrams.ToList();
         }
 
-        public List<SearchHistory> GetSearchHistory(string ip)
+       /* public List<SearchHistory> GetSearchHistory(string ip)
         {
             List<SearchHistory> history = new List<SearchHistory>();
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -111,6 +111,6 @@ WHERE u.UserIp = @IP
                 }
             }
             return history;
-        }
+        }*/
     }
 }
