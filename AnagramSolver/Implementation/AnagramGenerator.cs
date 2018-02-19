@@ -16,7 +16,7 @@ namespace Implementation
         private static int _minCount;
         private static int _maxResult;
 
-        public AnagramGenerator(IWordRepository iWordRepository, int min, int max)
+        public AnagramGenerator(IWordRepository iWordRepository)
         {
             _iWordsRepository = iWordRepository;
             _minCount = Int32.Parse(ConfigurationManager.AppSettings["min"]);
@@ -43,6 +43,11 @@ namespace Implementation
             {
                 return null;
             }
+        }
+
+        public HashSet<string> GetDictionary()
+        {
+            return AllWords;
         }
 
         public List<string> FindAnagram(string myWords)

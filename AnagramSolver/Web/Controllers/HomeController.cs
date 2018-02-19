@@ -1,4 +1,5 @@
-﻿using PagedList;
+﻿using Interfaces;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,6 +12,15 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        IAnagramSolver<string> _anagramSolver;
+        IWordRepository _repository;
+
+        public HomeController(IWordRepository rep, IAnagramSolver<string> solver)
+        {
+            _anagramSolver = solver;
+            _repository = rep;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -31,7 +41,7 @@ namespace Web.Controllers
             var timeResult = timer.ElapsedMilliseconds;
             string userIp = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
             var sortedInput = Alphabetize(input);
-            MvcApplication.efRepository.SaveUserSearch(userIp, timeResult, sortedInput, input);
+            _repository.SaveUserSearch(userIp, timeResult, sortedInput, input);
             return View();
         }
 
@@ -43,18 +53,18 @@ namespace Web.Controllers
             IPagedList<string> result;
             if(filter != null)
             {
-                 result = MvcApplication.dbReader.FilterByWord(filter).ToPagedList(pageNumber, pageSize);
+                 result = _repository.FilterByWord(filter).ToPagedList(pageNumber, pageSize);
             }
             else
             {
-                 result = MvcApplication.anagramGenerator.AllWords.ToPagedList(pageNumber, pageSize);
+                 result = _anagramSolver.GetDictionary().ToPagedList(pageNumber, pageSize);
             }
             return View(result);
         }
 
         public JsonResult GetApiAnagrams(string word)
         {
-            var result = MvcApplication.anagramGenerator.GetAnagrams(word);
+            var result = _anagramSolver.GetAnagrams(word);
             return Json(new {result = result}, JsonRequestBehavior.AllowGet);
         }
 
@@ -80,11 +90,11 @@ namespace Web.Controllers
         public List<string> CacheWords(string input)
         {
             var sortedWord = Alphabetize(input);
-            var anagrams = MvcApplication.efRepository.GetCachedAnagrams(sortedWord);
+            var anagrams = _repository.GetCachedAnagrams(sortedWord);
             if (anagrams.Count == 0)
             {
-                anagrams = MvcApplication.anagramGenerator.GetAnagrams(input);
-                MvcApplication.efRepository.WriteCachedWord(sortedWord, anagrams);
+                anagrams = _anagramSolver.GetAnagrams(input);
+                _repository.WriteCachedWord(sortedWord, anagrams);
             }
             return anagrams;
         }
@@ -108,8 +118,7 @@ namespace Web.Controllers
         public ActionResult SearchHistory()
         {
             string userIP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
-            //var dbSearchHistory = MvcApplication.efRepository.GetSearchHistory(userIP);
-            ViewBag.Model = MvcApplication.efRepository.GetSearchHistory(userIP);//Mapper.Map(dbSearchHistory);
+            ViewBag.Model = _repository.GetSearchHistory(userIP);
             return View();
         }
     }

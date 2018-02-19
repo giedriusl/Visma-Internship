@@ -1,8 +1,10 @@
+using AnagramSolver.EFCF.Core.Context;
+using AnagramSolver.Repositories;
 using DBReader;
 using Implementation;
 using Interfaces;
 using System;
-
+using System.Data.Entity;
 using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
@@ -49,6 +51,16 @@ namespace Web
                 .RegisterType<IWordRepository, EFRepository>(
                     new ContainerControlledLifetimeManager(), new InjectionConstructor())
                 .RegisterType<IAnagramSolver<string>, AnagramGenerator>(
+                    new ContainerControlledLifetimeManager(), new InjectionConstructor(new EFRepository()))
+                .RegisterType<IUserLogsRepository, UserLogsRepositoryEF>(
+                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                .RegisterType<ICachedWordsRepository, CachedWordsRepositoryEF>(
+                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                .RegisterType<ICachedAnagramsRepository, CachedAnagramsRepositoryEF>(
+                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                .RegisterType<IWordsRepository, WordsRepositoryEF>(
+                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                .RegisterType<DbContext, AnagramsContext>(
                     new ContainerControlledLifetimeManager(), new InjectionConstructor());
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.

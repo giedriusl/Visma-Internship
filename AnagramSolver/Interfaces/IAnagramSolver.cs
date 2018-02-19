@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Interfaces
 {
     public interface IAnagramSolver<T>
     {
+        HashSet<string> GetDictionary();
         List<T> GetAnagrams(string myWords);
     }
 }
