@@ -40,11 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\SearchHistoryDto.cs" />
     <Compile Include="IAnagramSolver.cs" />
-    <Compile Include="IDatabaseWriter.cs" />
+    <Compile Include="Repositories\IBaseRepository.cs" />
+    <Compile Include="Repositories\ICachedAnagramsRepository.cs" />
+    <Compile Include="Repositories\ICachedWordsRepository.cs" />
     <Compile Include="IDisplay.cs" />
-    <Compile Include="IWordRepository.cs" />
+    <Compile Include="Repositories\IUserLogsRepository.cs" />
+    <Compile Include="Repositories\IWordRepository.cs" />
+    <Compile Include="Repositories\IWordsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnagramSolver.Models\AnagramSolver.Models.csproj">
+      <Project>{7EA972D4-516A-41F5-A5DD-13B9E0B421EB}</Project>
+      <Name>AnagramSolver.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

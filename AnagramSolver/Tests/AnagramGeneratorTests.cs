@@ -1,5 +1,6 @@
 ﻿using Implementation;
 using Interfaces;
+using Interfaces.DTOs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -57,7 +58,7 @@ namespace Tests
         public AnagramGenerator DefaultInit()
         {
             List<string> list = new List<string> { "alus", "sula", "medis", "namas", "obuolys" };
-            AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list), 2, 10);
+            AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list));
             return anagramGenerator;
         }
         
@@ -72,9 +73,34 @@ namespace Tests
             set = new HashSet<string>(parameters);
         }
 
+        public HashSet<string> FilterByWord(string filter)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<string> GetCachedAnagrams(string word)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<SearchHistoryDto> GetSearchHistory(string ip)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public HashSet<string> ParseText()
         {
             return set;
+        }
+
+        public void SaveUserSearch(string ip, long time, string sortedWord, string originalWord)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void WriteCachedWord(string word, List<string> anagrams)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

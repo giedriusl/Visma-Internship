@@ -250,6 +250,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AnagramSolver.EFCF.Core\AnagramSolver.EFCF.Core.csproj">
+      <Project>{8a3606a6-2510-428d-b81f-37ae2aacc240}</Project>
+      <Name>AnagramSolver.EFCF.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnagramSolver.Repositories\AnagramSolver.Repositories.csproj">
+      <Project>{D4A925BA-D7D1-47C7-AAB3-67F498B74B1F}</Project>
+      <Name>AnagramSolver.Repositories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DBReader\DBReader.csproj">
       <Project>{fcb5fe8b-52c3-4e6a-ae69-1399a588fd59}</Project>
       <Name>DBReader</Name>
