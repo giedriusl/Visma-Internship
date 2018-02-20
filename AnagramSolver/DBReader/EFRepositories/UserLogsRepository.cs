@@ -1,6 +1,9 @@
 ﻿using AnagramSolver.EFCF.Core.Context;
-using AnagramSolver.EFCF.Core.Model;
+using AnagramSolver.Models;
+//using AnagramSolver.EFCF.Core.Model;
 using Interfaces;
+using Interfaces.DTOs;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DBReader.EFRepositories
@@ -8,6 +11,11 @@ namespace DBReader.EFRepositories
     public class UserLogsRepository : IUserLogsRepository
     {
         AnagramsContext anagramEntities = new AnagramsContext();
+
+        public List<SearchHistoryDto> GetSearchHistory(string ip)
+        {
+            throw new System.NotImplementedException();
+        }
 
         public void SaveUserSearch(string ip, long time, string sortedWord, string originalWord)
         {

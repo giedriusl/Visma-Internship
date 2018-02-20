@@ -17,3 +17,7 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.UserLogColumnsOrder.resources
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.FixCachedAnagrams.resources
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.CachedAnagramsNotNullable.resources
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.ModelsWords.resources
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\obj\Debug\AnagramSolver.EFCF.Core.Migrations.models.resources
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\bin\Debug\AnagramSolver.Models.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.EFCF.Core\bin\Debug\AnagramSolver.Models.pdb

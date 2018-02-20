@@ -1,24 +1,24 @@
-﻿using Interfaces;
+﻿using Interfaces.Services;
 using PagedList;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Web.Models;
 
 namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        IAnagramSolver<string> _anagramSolver;
-        IWordRepository _repository;
+        IHomeControllerService _homeControllerService;
+        readonly IUserLogService _userLogService;
+        readonly ICachedAnagramsService _anagramsService;
+        readonly IWordsService _wordsService;
 
-        public HomeController(IWordRepository rep, IAnagramSolver<string> solver)
+        public HomeController(IHomeControllerService controllerService, ICachedAnagramsService anagramsService, IUserLogService userService, IWordsService wordsService)
         {
-            _anagramSolver = solver;
-            _repository = rep;
+            _userLogService = userService;
+            _homeControllerService = controllerService;
+            _anagramsService = anagramsService;
+            _wordsService = wordsService;
         }
 
         public ActionResult Index()
@@ -34,14 +34,19 @@ namespace Web.Controllers
         public ActionResult GetAnagramsFromDictionary(string input)
         {
             Cookies(input);
+
             Stopwatch timer = new Stopwatch();
             timer.Start();
-            ViewBag.Model = CacheWords(input);
+
+            //fixed
+            ViewBag.Model = _anagramsService.CacheAnagrams(input);
+
             timer.Stop();
             var timeResult = timer.ElapsedMilliseconds;
             string userIp = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
-            var sortedInput = Alphabetize(input);
-            _repository.SaveUserSearch(userIp, timeResult, sortedInput, input);
+            
+            //fixed
+            _userLogService.SaveUserSearch(userIp, timeResult, input);
             return View();
         }
 
@@ -53,19 +58,13 @@ namespace Web.Controllers
             IPagedList<string> result;
             if(filter != null)
             {
-                 result = _repository.FilterByWord(filter).ToPagedList(pageNumber, pageSize);
+                 result = _wordsService.FilterByWord(filter).ToPagedList(pageNumber, pageSize);
             }
             else
             {
-                 result = _anagramSolver.GetDictionary().ToPagedList(pageNumber, pageSize);
+                 result = _homeControllerService.GetDictionary().ToPagedList(pageNumber, pageSize);
             }
             return View(result);
-        }
-
-        public JsonResult GetApiAnagrams(string word)
-        {
-            var result = _anagramSolver.GetAnagrams(word);
-            return Json(new {result = result}, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Downloads()
@@ -80,45 +79,30 @@ namespace Web.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
-        public string Alphabetize(string word)
-        {
-            char[] characters = word.ToArray();
-            Array.Sort(characters);
-            return new string(characters);
-        }
+        //public List<string> CacheWords(string input)
+        //{
+        //    //var sortedWord = Alphabetize(input);
+        //    //var anagrams = _repository.GetCachedAnagrams(sortedWord);
+        //    //if (anagrams.Count == 0)
+        //    //{
+        //    //    anagrams = _anagramSolver.GetAnagrams(input);
+        //    //    _repository.WriteCachedWord(sortedWord, anagrams);
+        //    //}
+        //    var anagrams = _anagramsService.CacheAnagrams(input);
+        //    return anagrams;
+        //}
 
-        public List<string> CacheWords(string input)
-        {
-            var sortedWord = Alphabetize(input);
-            var anagrams = _repository.GetCachedAnagrams(sortedWord);
-            if (anagrams.Count == 0)
-            {
-                anagrams = _anagramSolver.GetAnagrams(input);
-                _repository.WriteCachedWord(sortedWord, anagrams);
-            }
-            return anagrams;
-        }
-        
         public void Cookies(string input)
         {
             HttpCookie httpCookie = Request.Cookies["LastSearch"];
-            if (httpCookie == null)
-            {
-                httpCookie = new HttpCookie("LastSearch");
-                httpCookie.Value = "Labas";
-            }
-            else
-            {
-                httpCookie.Value = input;
-            }
-            httpCookie.Expires = DateTime.Now.AddDays(1);
+            _homeControllerService.ManageCookies(input, httpCookie);
             Response.Cookies.Add(httpCookie);
         }
          
         public ActionResult SearchHistory()
         {
             string userIP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
-            ViewBag.Model = _repository.GetSearchHistory(userIP);
+            ViewBag.Model = _userLogService.GetSearchHistory(userIP);/*_repository.GetSearchHistory(userIP);*/
             return View();
         }
     }

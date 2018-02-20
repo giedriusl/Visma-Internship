@@ -1,13 +1,17 @@
 using AnagramSolver.EFCF.Core.Context;
 using AnagramSolver.Repositories;
+using AnagramSolver.Service;
 using DBReader;
 using Implementation;
 using Interfaces;
+using Interfaces.Services;
 using System;
 using System.Data.Entity;
 using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
+using Web.Controllers;
+using Web.Services;
 
 namespace Web
 {
@@ -43,25 +47,32 @@ namespace Web
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            var path = Constants.Path;
-            var minCount = Constants.MinCount;
-            var maxResult = Constants.MaxResult;
-            var connectionString = Constants.ConnectionString;
+            //var path = Constants.Path;
+            //var minCount = Constants.MinCount;
+            //var maxResult = Constants.MaxResult;
+            //var connectionString = Constants.ConnectionString;
             container
                 .RegisterType<IWordRepository, EFRepository>(
                     new ContainerControlledLifetimeManager(), new InjectionConstructor())
                 .RegisterType<IAnagramSolver<string>, AnagramGenerator>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor(new EFRepository()))
+                    new ContainerControlledLifetimeManager())
+                .RegisterType<IHomeControllerService, HomeControllerService>(
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<IUserLogsRepository, UserLogsRepositoryEF>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                    new ContainerControlledLifetimeManager())
+                .RegisterType<IUserLogService, UserLogService>(
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<ICachedWordsRepository, CachedWordsRepositoryEF>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<ICachedAnagramsRepository, CachedAnagramsRepositoryEF>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
+                    new ContainerControlledLifetimeManager())
+                .RegisterType<ICachedAnagramsService, CachedAnagramsService>(
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<IWordsRepository, WordsRepositoryEF>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
-                .RegisterType<DbContext, AnagramsContext>(
-                    new ContainerControlledLifetimeManager(), new InjectionConstructor());
+                    new ContainerControlledLifetimeManager())
+                .RegisterType<IWordsService, WordsService>(
+                    new ContainerControlledLifetimeManager())
+                .RegisterType<DbContext, AnagramsContext>(new ContainerControlledLifetimeManager());
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();

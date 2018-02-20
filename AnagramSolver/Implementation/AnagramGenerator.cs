@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -10,13 +9,13 @@ namespace Implementation
 {
     public class AnagramGenerator : IAnagramSolver<string>
     {
-        private readonly IWordRepository _iWordsRepository;
+        private readonly IWordsRepository _iWordsRepository;
         private Dictionary<string, HashSet<string>> _anagramSet = new Dictionary<string, HashSet<string>>();
         public HashSet<string> AllWords = new HashSet<string>();
         private static int _minCount;
         private static int _maxResult;
 
-        public AnagramGenerator(IWordRepository iWordRepository)
+        public AnagramGenerator(IWordsRepository iWordRepository)
         {
             _iWordsRepository = iWordRepository;
             _minCount = Int32.Parse(ConfigurationManager.AppSettings["min"]);

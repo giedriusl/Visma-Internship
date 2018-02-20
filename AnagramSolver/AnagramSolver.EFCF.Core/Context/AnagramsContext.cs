@@ -1,4 +1,5 @@
-﻿using AnagramSolver.EFCF.Core.Model;
+﻿//using AnagramSolver.EFCF.Core.Model;
+using AnagramSolver.Models;
 using System.Data.Entity;
 
 namespace AnagramSolver.EFCF.Core.Context
@@ -10,11 +11,11 @@ namespace AnagramSolver.EFCF.Core.Context
 
         }
 
-        public DbSet<UserLogs> UserLogs { get; set; }
-        public DbSet<CachedWords> CachedWords { get; set; }
-        public DbSet<CachedAnagrams> CachedAnagrams { get; set; }
-        public DbSet<Words> Words { get; set; }
-
+        public virtual DbSet<UserLogs> UserLogs { get; set; }
+        public virtual DbSet<CachedWords> CachedWords { get; set; }
+        public virtual DbSet<CachedAnagrams> CachedAnagrams { get; set; }
+        public virtual DbSet<Words> Words { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
