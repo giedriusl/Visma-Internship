@@ -45,7 +45,10 @@
   <ItemGroup>
     <Compile Include="AppConstants.cs" />
     <Compile Include="ConstantsHelper.cs" />
+    <Compile Include="Display.cs" />
     <Compile Include="DisplayConsole.cs" />
+    <Compile Include="DisplayEventArgs.cs" />
+    <Compile Include="DisplayWithEvents.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

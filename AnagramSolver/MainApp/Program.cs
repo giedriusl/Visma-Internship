@@ -1,5 +1,6 @@
 ﻿using DBReader;
 using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -17,11 +18,44 @@ namespace MainApp
 
         static void Main(string[] args)
         {
+            var input = "krabas";
+
+            /*
+            Display display = new Display(ConsolePrint);
+            display.Print(input);
+            */
+
+            /*
+            Display display = new Display(ConsolePrint);
+            display.FormattedPrint(FirstLetterToUpper, input);
+            */
+            DisplayEventArgs arguments = new DisplayEventArgs(input);
+            DisplayWithEvents displayEvents = new DisplayWithEvents();
+            displayEvents.OutputDisplay += ConsolePrint;
+            displayEvents.OutputDisplay += DebugPrint;
+            displayEvents.OnOutputDisplay(arguments);
+
+
             SettingsConfig();
             Menu();
             Console.ReadLine();
         }
 
+        public static string FirstLetterToUpper(string input)
+        {
+            var upperString =  char.ToUpper(input[0]) + input.Substring(1);
+            return upperString;
+        }
+
+        public static void ConsolePrint(object sender, DisplayEventArgs e)
+        {
+            Console.WriteLine($"Hello {e.Input}!");
+        }
+
+        public static void DebugPrint(object sender, DisplayEventArgs e)
+        {
+            Debug.WriteLine($"Hello {e.Input}!");
+        }
 
         private static void GetApi()
         {
