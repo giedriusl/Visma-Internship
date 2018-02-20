@@ -19,6 +19,11 @@ namespace DBReader.EFRepositories
             throw new NotImplementedException();
         }
 
+        public int GetId(string sortedWord)
+        {
+            throw new NotImplementedException();
+        }
+
         public void WriteCachedWord(string word, List<string> anagrams)
         {
             throw new NotImplementedException();

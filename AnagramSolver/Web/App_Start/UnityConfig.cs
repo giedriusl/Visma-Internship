@@ -1,13 +1,17 @@
 using AnagramSolver.EFCF.Core.Context;
 using AnagramSolver.Repositories;
+using AnagramSolver.Service;
 using DBReader;
 using Implementation;
 using Interfaces;
+using Interfaces.Services;
 using System;
 using System.Data.Entity;
 using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
+using Web.Controllers;
+using Web.Services;
 
 namespace Web
 {
@@ -52,13 +56,21 @@ namespace Web
                     new ContainerControlledLifetimeManager(), new InjectionConstructor())
                 .RegisterType<IAnagramSolver<string>, AnagramGenerator>(
                     new ContainerControlledLifetimeManager())
+                .RegisterType<IHomeControllerService, HomeControllerService>(
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<IUserLogsRepository, UserLogsRepositoryEF>(
+                    new ContainerControlledLifetimeManager())
+                .RegisterType<IUserLogService, UserLogService>(
                     new ContainerControlledLifetimeManager())
                 .RegisterType<ICachedWordsRepository, CachedWordsRepositoryEF>(
                     new ContainerControlledLifetimeManager())
                 .RegisterType<ICachedAnagramsRepository, CachedAnagramsRepositoryEF>(
                     new ContainerControlledLifetimeManager())
+                .RegisterType<ICachedAnagramsService, CachedAnagramsService>(
+                    new ContainerControlledLifetimeManager())
                 .RegisterType<IWordsRepository, WordsRepositoryEF>(
+                    new ContainerControlledLifetimeManager())
+                .RegisterType<IWordsService, WordsService>(
                     new ContainerControlledLifetimeManager())
                 .RegisterType<DbContext, AnagramsContext>(new ContainerControlledLifetimeManager());
             // NOTE: To load from web.config uncomment the line below.

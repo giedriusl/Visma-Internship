@@ -181,6 +181,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ConstantsHelper.cs" />
+    <Compile Include="Controllers\ApiAnagramsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DisplayWeb.cs" />
     <Compile Include="Global.asax.cs">
@@ -235,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ApiAnagrams\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -257,6 +259,10 @@
     <ProjectReference Include="..\AnagramSolver.Repositories\AnagramSolver.Repositories.csproj">
       <Project>{D4A925BA-D7D1-47C7-AAB3-67F498B74B1F}</Project>
       <Name>AnagramSolver.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnagramSolver.Service\AnagramSolver.Service.csproj">
+      <Project>{0AFE88AD-C248-4B4F-9F9E-4F5520CDCAFD}</Project>
+      <Name>AnagramSolver.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\DBReader\DBReader.csproj">
       <Project>{fcb5fe8b-52c3-4e6a-ae69-1399a588fd59}</Project>

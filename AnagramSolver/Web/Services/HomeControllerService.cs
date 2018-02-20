@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
+using Interfaces;
 using Interfaces.Services;
 
 namespace Web.Services
 {
     public class HomeControllerService : IHomeControllerService
     {
-        public HomeControllerService()
-        {
+        IAnagramSolver<string> _anagramSolver;
 
+        public HomeControllerService(IAnagramSolver<string> solver)
+        {
+            _anagramSolver = solver;
         }
 
         public void ManageCookies(string input, HttpCookie httpCookie)
@@ -23,6 +27,11 @@ namespace Web.Services
                 httpCookie.Value = input;
             }
             httpCookie.Expires = DateTime.Now.AddDays(1);
+        }
+
+        public HashSet<string> GetDictionary()
+        {
+            return _anagramSolver.GetDictionary();
         }
     }
 }

@@ -3,8 +3,6 @@ using Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnagramSolver.Service
 {
@@ -24,13 +22,13 @@ namespace AnagramSolver.Service
         public List<string> CacheAnagrams(string input)
         {
             var sortedWord = Alphabetize(input);
-            var anagrams = _cachedWordsRep.GetCachedAnagrams(sortedWord).ToList();
-            if (anagrams.Count == 0)
+            var anagrams = _cachedWordsRep.GetCachedAnagrams(sortedWord);
+            if(anagrams == null)
             {
                 anagrams = _anagramSolver.GetAnagrams(input);
-                _cachedWordsRep.WriteCachedWord(sortedWord, anagrams);
+                _cachedWordsRep.WriteCachedWord(sortedWord, anagrams.ToList());
             }
-            return anagrams;
+            return anagrams.ToList();
         }
 
         public string Alphabetize(string word)

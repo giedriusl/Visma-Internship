@@ -1,5 +1,4 @@
-﻿//using AnagramSolver.EFCF.Core.Model;
-using AnagramSolver.Models;
+﻿using AnagramSolver.Models;
 using AnagramSolver.Repositories.Common;
 using Interfaces;
 using System;
@@ -11,7 +10,6 @@ namespace AnagramSolver.Repositories
 {
     public class CachedAnagramsRepositoryEF : BaseRepository<CachedAnagrams>, ICachedAnagramsRepository
     {
-        DbContext _dbContext;
 
         public CachedAnagramsRepositoryEF(DbContext context) : base(context)
         {

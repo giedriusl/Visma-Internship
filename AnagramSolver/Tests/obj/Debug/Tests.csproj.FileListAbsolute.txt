@@ -106,3 +106,5 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\AnagramSolver.Models.pdb
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\AnagramSolver.Repositories.pdb
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\AnagramSolver.Repositories.dll.config
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\AnagramSolver.Service.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\Tests\bin\Debug\AnagramSolver.Service.pdb

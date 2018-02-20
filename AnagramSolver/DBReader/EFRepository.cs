@@ -2,7 +2,6 @@
 using System.Linq;
 using AnagramSolver.EFCF.Core.Context;
 using AnagramSolver.Models;
-//using AnagramSolver.EFCF.Core.Model;
 using Interfaces;
 using Interfaces.DTOs;
 
@@ -42,7 +41,6 @@ namespace DBReader
             return cachedAnagrams;
         }
 
-        //Neaisku!!!!!!!!!!!!!!!!!!!!!
         public List<SearchHistoryDto> GetSearchHistory(string ip)
         {
             var words = _anagramEntities.UserLogs
@@ -57,8 +55,6 @@ namespace DBReader
             return words;
         }
 
-
-        //Neaisku!!!!!!!!!!!!!
         public void WriteCachedWord(string word, List<string> anagrams)
         {
             var wordToSave = new CachedWords { Word = word };

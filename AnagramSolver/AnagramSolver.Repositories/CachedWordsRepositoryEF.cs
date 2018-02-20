@@ -27,11 +27,6 @@ namespace AnagramSolver.Repositories
         {
             var words = dbSet.Where(x => x.Word == word).Select(y => y.CachedAnagrams.Select(z => z.Anagram)).FirstOrDefault();
 
-            //var words = (from ca in 
-            //             join cw in _anagramEntities.CachedWords on ca.WordId equals cw.Id
-            //             where cw.Word == word
-            //             select ca.Anagram).ToList();
-
             var cachedAnagrams = words;
             return cachedAnagrams;
         }
@@ -48,6 +43,11 @@ namespace AnagramSolver.Repositories
                 _repository.WriteCachedAnagram(anagramToSave);
             }
             _dbContext.SaveChanges();
+        }
+
+        public int GetId(string sortedWord)
+        {
+            return dbSet.Where(x => x.Word == sortedWord).Select(x => x.Id).FirstOrDefault();
         }
     }
 }
