@@ -9,24 +9,22 @@ namespace AnagramSolver.Service
     public class CachedAnagramsService : ICachedAnagramsService
     {
         IAnagramSolver<string> _anagramSolver;
-        readonly ICachedAnagramsRepository _cachedAnagramsRep;
-        readonly ICachedWordsRepository _cachedWordsRep;
+        readonly ICachedWordsRepository _cachedWordsRepository;
 
-        public CachedAnagramsService(IAnagramSolver<string> anagramSolver, ICachedAnagramsRepository anagramsRepository, ICachedWordsRepository wordsRepository)
+        public CachedAnagramsService(IAnagramSolver<string> anagramSolver, ICachedWordsRepository wordsRepository)
         {
             _anagramSolver = anagramSolver;
-            _cachedAnagramsRep = anagramsRepository;
-            _cachedWordsRep = wordsRepository;
+            _cachedWordsRepository = wordsRepository;
         }
 
         public List<string> CacheAnagrams(string input)
         {
             var sortedWord = Alphabetize(input);
-            var anagrams = _cachedWordsRep.GetCachedAnagrams(sortedWord);
-            if(anagrams == null)
+            var anagrams = _cachedWordsRepository.GetCachedAnagrams(sortedWord);
+            if(anagrams.Count() == 0)
             {
                 anagrams = _anagramSolver.GetAnagrams(input);
-                _cachedWordsRep.WriteCachedWord(sortedWord, anagrams.ToList());
+                _cachedWordsRepository.WriteCachedWord(sortedWord, anagrams.ToList());
             }
             return anagrams.ToList();
         }

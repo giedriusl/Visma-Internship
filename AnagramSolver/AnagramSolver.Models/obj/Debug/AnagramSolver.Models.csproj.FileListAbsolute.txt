@@ -4,3 +4,9 @@ C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSo
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Models\obj\Debug\AnagramSolver.Models.csproj.CoreCompileInputs.cache
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Models\obj\Debug\AnagramSolver.Models.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramSolver\Visma-Internship\AnagramSolver\AnagramSolver.Models\obj\Debug\AnagramSolver.Models.pdb
+C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\AnagramSolver.Models\bin\Debug\AnagramSolver.Models.dll
+C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\AnagramSolver.Models\bin\Debug\AnagramSolver.Models.pdb
+C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\AnagramSolver.Models\obj\Debug\AnagramSolver.Models.csprojResolveAssemblyReference.cache
+C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\AnagramSolver.Models\obj\Debug\AnagramSolver.Models.csproj.CoreCompileInputs.cache
+C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\AnagramSolver.Models\obj\Debug\AnagramSolver.Models.dll
+C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\AnagramSolver.Models\obj\Debug\AnagramSolver.Models.pdb
