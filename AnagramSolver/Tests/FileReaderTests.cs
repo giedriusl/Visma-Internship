@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using DBReader;
 using Interfaces;
@@ -53,6 +54,11 @@ namespace Tests
 
     public class DisplayTest : IDisplay
     {
+        public void FormattedPrint(Func<string, string> someDelegate, string input)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Print(string str)
         {
             Debug.WriteLine(str);

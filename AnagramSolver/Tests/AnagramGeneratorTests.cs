@@ -58,13 +58,13 @@ namespace Tests
         public AnagramGenerator DefaultInit()
         {
             List<string> list = new List<string> { "alus", "sula", "medis", "namas", "obuolys" };
-           // AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list));
-            return null;
+            AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list));
+            return anagramGenerator;
         }
         
     }
 
-    public class FakeReader : IWordRepository
+    public class FakeReader : IWordsRepository
     {
         HashSet<string> set;
 
@@ -78,29 +78,9 @@ namespace Tests
             throw new System.NotImplementedException();
         }
 
-        public List<string> GetCachedAnagrams(string word)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<SearchHistoryDto> GetSearchHistory(string ip)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public HashSet<string> ParseText()
         {
             return set;
-        }
-
-        public void SaveUserSearch(string ip, long time, string sortedWord, string originalWord)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void WriteCachedWord(string word, List<string> anagrams)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
