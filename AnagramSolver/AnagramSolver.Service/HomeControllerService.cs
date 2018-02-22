@@ -18,7 +18,7 @@ namespace AnagramSolver.Service
             _anagramSolver = solver;
         }
 
-        public void ManageCookies(string input, HttpCookie httpCookie)
+        public HttpCookie ManageCookies(string input, HttpCookie httpCookie)
         {
             if (httpCookie == null)
             {
@@ -30,6 +30,7 @@ namespace AnagramSolver.Service
                 httpCookie.Value = input;
             }
             httpCookie.Expires = DateTime.Now.AddDays(1);
+            return httpCookie;
         }
 
         public HashSet<string> GetDictionary()

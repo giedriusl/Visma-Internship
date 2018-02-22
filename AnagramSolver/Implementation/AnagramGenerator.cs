@@ -10,16 +10,18 @@ namespace Implementation
     public class AnagramGenerator : IAnagramSolver<string>
     {
         private readonly IWordsRepository _iWordsRepository;
+        private readonly IConfigSettings _configSettings;
         private Dictionary<string, HashSet<string>> _anagramSet = new Dictionary<string, HashSet<string>>();
         public HashSet<string> AllWords = new HashSet<string>();
-        private static int _minCount;
-        private static int _maxResult;
+       // private static int _maxResult;
+       // private static int _minCount;
 
-        public AnagramGenerator(IWordsRepository iWordRepository)
+        public AnagramGenerator(IWordsRepository iWordRepository, IConfigSettings configSettings)
         {
+            _configSettings = configSettings;
             _iWordsRepository = iWordRepository;
-            _minCount = Int32.Parse(ConfigurationManager.AppSettings["min"]);
-            _maxResult = Int32.Parse(ConfigurationManager.AppSettings["maxResult"]);
+            //_minCount = Int32.Parse(ConfigurationManager.AppSettings["min"]);
+            //_maxResult = Int32.Parse(ConfigurationManager.AppSettings["maxResult"]);
             Init();
         }
 
@@ -104,7 +106,7 @@ namespace Implementation
         {
             myWords = Alphabetize(myWords);
             var result = new List<string>();
-            for(int i = _minCount; i < myWords.Length - _minCount; i++)
+            for(int i = _configSettings.MinCount; i < myWords.Length - _configSettings.MinCount; i++)
             {
                 var lengthDictionary = _anagramSet.Where(x => x.Key.Length == i);
                 foreach (var valueWords in lengthDictionary)
@@ -119,9 +121,9 @@ namespace Implementation
                     if (Contains(leftoverAnagram))
                     {
                         result.AddRange(JoinAnagrams(valueWords.Value, _anagramSet[leftoverAnagram]));
-                        if (result.Count > _maxResult)
+                        if (result.Count > _configSettings.MaxResult)
                         {
-                            return result.Take(_maxResult);
+                            return result.Take(_configSettings.MaxResult);
                         }
                         else continue;
                     }

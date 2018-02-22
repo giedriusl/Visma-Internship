@@ -51,6 +51,8 @@ namespace Web
             //var maxResult = Constants.MaxResult;
             //var connectionString = Constants.ConnectionString;
             container
+                .RegisterType<IConfigSettings, ConfigSettings>(
+                    new ContainerControlledLifetimeManager(), new InjectionConstructor())
                 .RegisterType<IWordRepository, EFRepository>(
                     new ContainerControlledLifetimeManager(), new InjectionConstructor())
                 .RegisterType<IAnagramSolver<string>, AnagramGenerator>(

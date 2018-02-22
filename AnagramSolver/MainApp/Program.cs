@@ -1,4 +1,5 @@
 ﻿using DBReader;
+using Interfaces;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
@@ -10,6 +11,7 @@ namespace MainApp
     {
         static HttpClient client = new HttpClient();
         private static DisplayConsole _display = new DisplayConsole();
+        private static ConfigSettings config = new ConfigSettings();
         private static DBUploader _dbUploader;
         private static int minCount;
         private static int maxResult;
@@ -33,6 +35,7 @@ namespace MainApp
             DisplayWithEvents displayEvents = new DisplayWithEvents();
             displayEvents.OutputDisplay += ConsolePrint;
             displayEvents.OutputDisplay += DebugPrint;
+
             displayEvents.OnOutputDisplay(arguments);
 
 
@@ -67,10 +70,10 @@ namespace MainApp
 
         public static void SettingsConfig()
         {
-            minCount = AppConstants.MinCount;
-            maxResult = AppConstants.MaxResult;
-            path = AppConstants.Path;
-            connectionString = AppConstants.ConnectionString;
+            minCount = config.MinCount;
+            maxResult = config.MaxResult;
+            path = config.Path;
+            connectionString = config.ConnectionString;
             _dbUploader = new DBUploader(_display, minCount, path, connectionString);
         }
 

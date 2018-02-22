@@ -1,4 +1,4 @@
-﻿using AnagramSolver.EFCF.Core.Model;
+﻿using AnagramSolver.Models;
 using Interfaces.DTOs;
 using Interfaces.Repositories;
 using System.Collections.Generic;

@@ -58,8 +58,8 @@ namespace Tests
         public AnagramGenerator DefaultInit()
         {
             List<string> list = new List<string> { "alus", "sula", "medis", "namas", "obuolys" };
-            AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list));
-            return anagramGenerator;
+            //AnagramGenerator anagramGenerator = new AnagramGenerator(new FakeReader(list));
+            return null;//anagramGenerator;
         }
         
     }
