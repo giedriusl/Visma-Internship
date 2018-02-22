@@ -11,7 +11,6 @@ using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
 using Web.Controllers;
-using Web.Services;
 
 namespace Web
 {

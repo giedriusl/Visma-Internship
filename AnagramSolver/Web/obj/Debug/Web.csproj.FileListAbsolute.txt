@@ -154,3 +154,7 @@ C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\
 C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\Web\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\Web\bin\Microsoft.AI.Web.xml
 C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\Web\bin\AnagramSolver.Models.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Web\obj\Debug\Web.dll
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Web\obj\Debug\Web.pdb

@@ -5,3 +5,10 @@ C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\
 C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\SOAPApi\obj\Debug\SOAPApi.csproj.CoreCompileInputs.cache
 C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\SOAPApi\obj\Debug\SOAPApi.exe
 C:\Users\giedrius.lukocius\source\repos\Anagrams\Visma-Internship\AnagramSolver\SOAPApi\obj\Debug\SOAPApi.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\SOAPApi\bin\Debug\SOAPApi.exe.config
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\SOAPApi\bin\Debug\SOAPApi.exe
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\SOAPApi\bin\Debug\SOAPApi.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\SOAPApi\obj\Debug\SOAPApi.csprojResolveAssemblyReference.cache
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\SOAPApi\obj\Debug\SOAPApi.csproj.CoreCompileInputs.cache
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\SOAPApi\obj\Debug\SOAPApi.exe
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\SOAPApi\obj\Debug\SOAPApi.pdb
