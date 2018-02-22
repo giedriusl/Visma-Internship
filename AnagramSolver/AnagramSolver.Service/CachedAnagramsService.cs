@@ -21,7 +21,7 @@ namespace AnagramSolver.Service
         {
             var sortedWord = Alphabetize(input);
             var anagrams = _cachedWordsRepository.GetCachedAnagrams(sortedWord);
-            if(anagrams.Count() == 0)
+            if(!anagrams.Any())
             {
                 anagrams = _anagramSolver.GetAnagrams(input);
                 _cachedWordsRepository.WriteCachedWord(sortedWord, anagrams.ToList());
