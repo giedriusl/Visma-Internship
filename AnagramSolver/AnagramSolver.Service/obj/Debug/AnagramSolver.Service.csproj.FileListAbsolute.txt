@@ -32,13 +32,8 @@ C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramS
 C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\AnagramSolver.Service.pdb
 C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\Interfaces.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\AnagramSolver.Models.dll
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\AnagramSolver.EFCF.Core.dll
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\EntityFramework.dll
 C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\Interfaces.pdb
 C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\AnagramSolver.Models.pdb
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\AnagramSolver.EFCF.Core.pdb
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\AnagramSolver.EFCF.Core.dll.config
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\bin\Debug\EntityFramework.xml
 C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\obj\Debug\AnagramSolver.Service.csprojResolveAssemblyReference.cache
 C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\obj\Debug\AnagramSolver.Service.csproj.CoreCompileInputs.cache
 C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AnagramSolver.Service\obj\Debug\AnagramSolver.Service.dll

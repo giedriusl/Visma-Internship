@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigSettings.cs" />
     <Compile Include="DTOs\SearchHistoryDto.cs" />
     <Compile Include="IAnagramSolver.cs" />
+    <Compile Include="IConfigSettings.cs" />
     <Compile Include="Repositories\IBaseRepository.cs" />
     <Compile Include="Repositories\ICachedAnagramsRepository.cs" />
     <Compile Include="Repositories\ICachedWordsRepository.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="Services\IHomeControllerService.cs" />
     <Compile Include="Services\IUserLogService.cs" />
     <Compile Include="Services\IWordsService.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnagramSolver.EFCF.Core\AnagramSolver.EFCF.Core.csproj">

@@ -10,16 +10,14 @@ namespace Implementation
     public class AnagramGenerator : IAnagramSolver<string>
     {
         private readonly IWordsRepository _iWordsRepository;
+        private readonly IConfigSettings _configSettings;
         private Dictionary<string, HashSet<string>> _anagramSet = new Dictionary<string, HashSet<string>>();
         public HashSet<string> AllWords = new HashSet<string>();
-        private static int _minCount;
-        private static int _maxResult;
 
-        public AnagramGenerator(IWordsRepository iWordRepository)
+        public AnagramGenerator(IWordsRepository iWordRepository, IConfigSettings configSettings)
         {
+            _configSettings = configSettings;
             _iWordsRepository = iWordRepository;
-            _minCount = Int32.Parse(ConfigurationManager.AppSettings["min"]);
-            _maxResult = Int32.Parse(ConfigurationManager.AppSettings["maxResult"]);
             Init();
         }
 
@@ -52,7 +50,7 @@ namespace Implementation
         public List<string> FindAnagram(string myWords)
         {
             myWords = myWords.ToLower();
-            myWords = Alphabetize(myWords);
+            myWords = myWords.Alphabetize();
             if (_anagramSet.ContainsKey(myWords))
             {
                 var results = _anagramSet[myWords].ToList();
@@ -77,7 +75,7 @@ namespace Implementation
         {
             foreach(var word in AllWords)
             {
-                var sortedWord = Alphabetize(word);
+                var sortedWord = word.Alphabetize();
                 if (!Contains(sortedWord))
                 {
                     _anagramSet.Add(sortedWord, new HashSet<string> { word });
@@ -93,18 +91,11 @@ namespace Implementation
             return _anagramSet.Keys.Contains(word);
         }
 
-        public string Alphabetize(string word)
-        {
-            char[] characters = word.ToArray();
-            Array.Sort(characters);
-            return new string(characters);
-        }
-
         public IEnumerable<string> FindTwoAnagrams(string myWords)
         {
-            myWords = Alphabetize(myWords);
+            myWords = myWords.Alphabetize();
             var result = new List<string>();
-            for(int i = _minCount; i < myWords.Length - _minCount; i++)
+            for(int i = _configSettings.MinCount; i < myWords.Length - _configSettings.MinCount; i++)
             {
                 var lengthDictionary = _anagramSet.Where(x => x.Key.Length == i);
                 foreach (var valueWords in lengthDictionary)
@@ -119,9 +110,9 @@ namespace Implementation
                     if (Contains(leftoverAnagram))
                     {
                         result.AddRange(JoinAnagrams(valueWords.Value, _anagramSet[leftoverAnagram]));
-                        if (result.Count > _maxResult)
+                        if (result.Count > _configSettings.MaxResult)
                         {
-                            return result.Take(_maxResult);
+                            return result.Take(_configSettings.MaxResult);
                         }
                         else continue;
                     }

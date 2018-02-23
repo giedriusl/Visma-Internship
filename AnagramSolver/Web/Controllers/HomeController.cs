@@ -1,4 +1,5 @@
-﻿using Interfaces.Services;
+﻿using Interfaces;
+using Interfaces.Services;
 using PagedList;
 using System.Diagnostics;
 using System.Web;
@@ -12,13 +13,15 @@ namespace Web.Controllers
         readonly IUserLogService _userLogService;
         readonly ICachedAnagramsService _anagramsService;
         readonly IWordsService _wordsService;
+        readonly IConfigSettings _configSettings;
 
-        public HomeController(IHomeControllerService controllerService, ICachedAnagramsService anagramsService, IUserLogService userService, IWordsService wordsService)
+        public HomeController(IHomeControllerService controllerService, ICachedAnagramsService anagramsService, IUserLogService userService, IWordsService wordsService, IConfigSettings configSettings)
         {
             _userLogService = userService;
             _homeControllerService = controllerService;
             _anagramsService = anagramsService;
             _wordsService = wordsService;
+            _configSettings = configSettings;
         }
 
         public ActionResult Index()
@@ -38,14 +41,12 @@ namespace Web.Controllers
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
-            //fixed
             ViewBag.Model = _anagramsService.CacheAnagrams(input);
 
             timer.Stop();
             var timeResult = timer.ElapsedMilliseconds;
             string userIp = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
             
-            //fixed
             _userLogService.SaveUserSearch(userIp, timeResult, input);
             return View();
         }
@@ -74,35 +75,22 @@ namespace Web.Controllers
 
         public FileResult DownloadDictionary()
         {
-            byte[] fileBytes = System.IO.File.ReadAllBytes(Constants.Path);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(_configSettings.Path);
             string fileName = "dictionary.txt";
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
-        //public List<string> CacheWords(string input)
-        //{
-        //    //var sortedWord = Alphabetize(input);
-        //    //var anagrams = _repository.GetCachedAnagrams(sortedWord);
-        //    //if (anagrams.Count == 0)
-        //    //{
-        //    //    anagrams = _anagramSolver.GetAnagrams(input);
-        //    //    _repository.WriteCachedWord(sortedWord, anagrams);
-        //    //}
-        //    var anagrams = _anagramsService.CacheAnagrams(input);
-        //    return anagrams;
-        //}
-
         public void Cookies(string input)
         {
             HttpCookie httpCookie = Request.Cookies["LastSearch"];
-            _homeControllerService.ManageCookies(input, httpCookie);
+            httpCookie = _homeControllerService.ManageCookies(input, httpCookie);
             Response.Cookies.Add(httpCookie);
         }
          
         public ActionResult SearchHistory()
         {
             string userIP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[1].ToString();
-            ViewBag.Model = _userLogService.GetSearchHistory(userIP);/*_repository.GetSearchHistory(userIP);*/
+            ViewBag.Model = _userLogService.GetSearchHistory(userIP);
             return View();
         }
     }

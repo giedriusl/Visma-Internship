@@ -23,12 +23,12 @@ namespace AnagramSolver.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<string> GetCachedAnagrams(string word)
+        public List<string> GetCachedAnagrams(string word)
         {
             var words = dbSet.Where(x => x.Word == word).Select(y => y.CachedAnagrams.Select(z => z.Anagram)).FirstOrDefault();
 
             var cachedAnagrams = words;
-            return cachedAnagrams;
+            return cachedAnagrams.ToList();
         }
 
         public void WriteCachedWord(string word, List<string> anagrams)

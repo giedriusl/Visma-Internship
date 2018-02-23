@@ -1,0 +1,14 @@
+C:\Users\giedrius.lukocius\source\repos\Generics\Generics\bin\Debug\Generics.exe.config
+C:\Users\giedrius.lukocius\source\repos\Generics\Generics\bin\Debug\Generics.exe
+C:\Users\giedrius.lukocius\source\repos\Generics\Generics\bin\Debug\Generics.pdb
+C:\Users\giedrius.lukocius\source\repos\Generics\Generics\obj\Debug\Generics.csprojResolveAssemblyReference.cache
+C:\Users\giedrius.lukocius\source\repos\Generics\Generics\obj\Debug\Generics.csproj.CoreCompileInputs.cache
+C:\Users\giedrius.lukocius\source\repos\Generics\Generics\obj\Debug\Generics.exe
+C:\Users\giedrius.lukocius\source\repos\Generics\Generics\obj\Debug\Generics.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Generics\bin\Debug\Generics.exe.config
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Generics\bin\Debug\Generics.exe
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Generics\bin\Debug\Generics.pdb
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Generics\obj\Debug\Generics.csprojResolveAssemblyReference.cache
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Generics\obj\Debug\Generics.csproj.CoreCompileInputs.cache
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Generics\obj\Debug\Generics.exe
+C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\Generics\obj\Debug\Generics.pdb

@@ -19,21 +19,15 @@ namespace AnagramSolver.Service
 
         public List<string> CacheAnagrams(string input)
         {
-            var sortedWord = Alphabetize(input);
-            var anagrams = _cachedWordsRepository.GetCachedAnagrams(sortedWord);
+            var sortedWord = input.Alphabetize();
+            List<string> anagrams = _cachedWordsRepository.GetCachedAnagrams(sortedWord);
             if(!anagrams.Any())
             {
                 anagrams = _anagramSolver.GetAnagrams(input);
-                _cachedWordsRepository.WriteCachedWord(sortedWord, anagrams.ToList());
+                _cachedWordsRepository.WriteCachedWord(sortedWord, anagrams);
             }
-            return anagrams.ToList();
+            return anagrams;
         }
 
-        public string Alphabetize(string word)
-        {
-            char[] characters = word.ToArray();
-            Array.Sort(characters);
-            return new string(characters);
-        }
     }
 }

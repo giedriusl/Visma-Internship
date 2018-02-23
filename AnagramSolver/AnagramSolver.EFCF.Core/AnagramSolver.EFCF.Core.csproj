@@ -85,10 +85,6 @@
       <DependentUpon>201802191143575_models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\CachedAnagrams.cs" />
-    <Compile Include="Model\CachedWords.cs" />
-    <Compile Include="Model\UserLogs.cs" />
-    <Compile Include="Model\Words.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

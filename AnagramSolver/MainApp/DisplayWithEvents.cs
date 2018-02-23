@@ -17,7 +17,10 @@ namespace MainApp
 
         public void OnOutputDisplay(DisplayEventArgs e)
         {
-            OutputDisplay(this, e);
+            if(OutputDisplay != null)
+            {
+                OutputDisplay(this, e);
+            }
         }
 
     }

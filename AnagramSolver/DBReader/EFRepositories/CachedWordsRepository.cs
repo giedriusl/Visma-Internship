@@ -28,5 +28,10 @@ namespace DBReader.EFRepositories
         {
             throw new NotImplementedException();
         }
+
+        List<string> ICachedWordsRepository.GetCachedAnagrams(string word)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

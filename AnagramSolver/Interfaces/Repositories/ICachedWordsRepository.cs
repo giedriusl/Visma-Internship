@@ -9,7 +9,7 @@ namespace Interfaces
     public interface ICachedWordsRepository
     {
         List<string> GetCachedWords();
-        IEnumerable<string> GetCachedAnagrams(string word);
+        List<string> GetCachedAnagrams(string word);
         void WriteCachedWord(string word, List<string> anagrams);
         int GetId(string sortedWord);
     }
