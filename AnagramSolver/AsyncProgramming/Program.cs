@@ -12,8 +12,8 @@ namespace AsyncProgramming
     {
         static void Main(string[] args)
         {
-           // CatalogFilesCreation();
-            CopyFiles();
+            //CatalogFilesCreation();
+            //CopyFiles();
         }
 
         public static void StartApartmentThread()
