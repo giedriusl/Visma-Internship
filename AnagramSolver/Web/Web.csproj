@@ -179,8 +179,6 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="ConstantsHelper.cs" />
     <Compile Include="Controllers\ApiAnagramsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DisplayWeb.cs" />

@@ -58,6 +58,7 @@
     <Compile Include="Services\IHomeControllerService.cs" />
     <Compile Include="Services\IUserLogService.cs" />
     <Compile Include="Services\IWordsService.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnagramSolver.EFCF.Core\AnagramSolver.EFCF.Core.csproj">

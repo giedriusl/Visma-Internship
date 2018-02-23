@@ -23,16 +23,9 @@ namespace AnagramSolver.Service
             return _userLogRepository.GetSearchHistory(ip);
         }
 
-        public string Alphabetize(string word)
-        {
-            char[] characters = word.ToArray();
-            Array.Sort(characters);
-            return new string(characters);
-        }
-
         public void SaveUserSearch(string ip, long time, string input)
         {
-            var sortedInput = Alphabetize(input);
+            var sortedInput = input.Alphabetize();
             _userLogRepository.SaveUserSearch(ip, time, sortedInput, input);
         }
     }

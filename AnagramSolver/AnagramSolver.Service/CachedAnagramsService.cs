@@ -19,7 +19,7 @@ namespace AnagramSolver.Service
 
         public List<string> CacheAnagrams(string input)
         {
-            var sortedWord = Alphabetize(input);
+            var sortedWord = input.Alphabetize();
             List<string> anagrams = _cachedWordsRepository.GetCachedAnagrams(sortedWord);
             if(!anagrams.Any())
             {
@@ -29,11 +29,5 @@ namespace AnagramSolver.Service
             return anagrams;
         }
 
-        public string Alphabetize(string word)
-        {
-            char[] characters = word.ToArray();
-            Array.Sort(characters);
-            return new string(characters);
-        }
     }
 }
