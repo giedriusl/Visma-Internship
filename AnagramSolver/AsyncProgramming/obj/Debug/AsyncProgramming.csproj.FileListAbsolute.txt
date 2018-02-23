@@ -1,7 +1,0 @@
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AsyncProgramming\bin\Debug\AsyncProgramming.exe.config
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AsyncProgramming\bin\Debug\AsyncProgramming.exe
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AsyncProgramming\bin\Debug\AsyncProgramming.pdb
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AsyncProgramming\obj\Debug\AsyncProgramming.csprojResolveAssemblyReference.cache
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AsyncProgramming\obj\Debug\AsyncProgramming.csproj.CoreCompileInputs.cache
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AsyncProgramming\obj\Debug\AsyncProgramming.exe
-C:\Users\giedrius.lukocius\source\repos\AnagramsSolver\Visma-Internship\AnagramSolver\AsyncProgramming\obj\Debug\AsyncProgramming.pdb
