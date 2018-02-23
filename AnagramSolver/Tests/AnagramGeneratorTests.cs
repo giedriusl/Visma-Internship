@@ -9,22 +9,22 @@ namespace Tests
     [TestClass]
     public class AnagramGeneratorTests
     {
-        [TestMethod]
-        public void Should_ReturnTrue_When_WordIsAlphabetized()
-        {
-            //Arrange
-            var anagramGenerator = DefaultInit();
-            var word = "alus";
-            var alphabetized = "alsu";
+        //[TestMethod]
+        //public void Should_ReturnTrue_When_WordIsAlphabetized()
+        //{
+        //    //Arrange
+        //    var anagramGenerator = DefaultInit();
+        //    var word = "alus";
+        //    var alphabetized = "alsu";
             
-            //Act
+        //    //Act
 
-            var result = anagramGenerator.Alphabetize(word);
+        //    var result = anagramGenerator.Alphabetize(word);
             
-            //Assert
+        //    //Assert
 
-            Assert.AreEqual(alphabetized, result);
-        }
+        //    Assert.AreEqual(alphabetized, result);
+        //}
 
         [TestMethod]
         public void Should_ReturnTrue_When_WordHasRightAnagrams()

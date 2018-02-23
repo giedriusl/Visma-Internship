@@ -10,7 +10,11 @@ namespace XmlGenerator
     {
         static void Main(string[] args)
         {
-
+            OrderFactory factory = new OrderFactory();
+            var order = factory.GetOrders();
+            var xmlstring = order.Serialize();
+            Console.WriteLine(xmlstring);
+            Console.ReadLine();
         }
     }
 }
