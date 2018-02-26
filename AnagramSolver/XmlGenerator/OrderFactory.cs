@@ -22,7 +22,7 @@ namespace XmlGenerator
                         city = "LA",
                         state = "WhoKnows",
                         country = "US",
-                        zip = "unzip"
+                        zip = "4444"
                     },
                     new USAddress
                     {
@@ -31,25 +31,7 @@ namespace XmlGenerator
                         city = "LA",
                         state = "WhoKnows",
                         country = "US",
-                        zip = "unzip"
-                    },
-                    new USAddress
-                    {
-                        name = "Marry",
-                        street = "WolfStreet",
-                        city = "LA",
-                        state = "WhoKnows",
-                        country = "US",
-                        zip = "unzip"
-                    },
-                    new USAddress
-                    {
-                        name = "NameIt",
-                        street = "WolfStreet",
-                        city = "LA",
-                        state = "WhoKnows",
-                        country = "US",
-                        zip = "unzip"
+                        zip = "4444"
                     }
                 },
                 BillTo = new USAddress
@@ -59,7 +41,7 @@ namespace XmlGenerator
                     city = "LA",
                     state = "WhoKnows",
                     country = "US",
-                    zip = "unzip"
+                    zip = "4444"
                 },
                 OrderDate = DateTime.Now,
                 OrderDateSpecified = true
