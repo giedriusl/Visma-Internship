@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncProgramming", "AsyncPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generics", "Generics\Generics.csproj", "{34CFE7FB-1368-4723-949B-9125F5BC9616}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlGenerator", "XmlGenerator\XmlGenerator.csproj", "{A64DB120-2A1B-4368-AC24-2D7EF7C7B1E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,10 @@ Global
 		{34CFE7FB-1368-4723-949B-9125F5BC9616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34CFE7FB-1368-4723-949B-9125F5BC9616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34CFE7FB-1368-4723-949B-9125F5BC9616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A64DB120-2A1B-4368-AC24-2D7EF7C7B1E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A64DB120-2A1B-4368-AC24-2D7EF7C7B1E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A64DB120-2A1B-4368-AC24-2D7EF7C7B1E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A64DB120-2A1B-4368-AC24-2D7EF7C7B1E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +124,7 @@ Global
 		{1878EB6C-84FD-4D7D-A813-198AD6D02A3A} = {F7226AED-D03A-4EA5-8C2E-98A4576880B1}
 		{D057D79E-7EB4-4D92-A58A-5EA05EEF4866} = {F7226AED-D03A-4EA5-8C2E-98A4576880B1}
 		{34CFE7FB-1368-4723-949B-9125F5BC9616} = {F7226AED-D03A-4EA5-8C2E-98A4576880B1}
+		{A64DB120-2A1B-4368-AC24-2D7EF7C7B1E5} = {F7226AED-D03A-4EA5-8C2E-98A4576880B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A6A53EB-A02D-4CF0-BB15-81037FE85207}
